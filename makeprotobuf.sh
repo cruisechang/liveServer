@@ -1,0 +1,1 @@
+protoc -I protobuf/ protobuf/protobuf.proto --go_out=plugins=grpc:protobuf

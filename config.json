@@ -1,0 +1,5 @@
+{
+	"Version":"1.0",
+	"DBAPIServer":"http://localhost:15000",
+	"RoadMapAPIServer":" http://139.162.81.79:15002/generateRoad"
+}

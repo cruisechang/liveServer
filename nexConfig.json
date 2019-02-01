@@ -1,0 +1,37 @@
+{
+
+	"WebSocketServer":{
+		"Address": "",
+		"Port":"11000",
+		"ConnectionCapacity": 500,
+		"ConnectionLostChanCapacity": 500,
+		"PacketChanCapacity": 500,
+		"AcceptTimeoutSecond":20,
+		"AliveTimeoutSecond":60,
+		"DefaultAESKeyString":"qwertyuiasdfghjk12345678!@#$%^&*"
+	},
+	"HttpServer":{
+		"Address":"",
+		"Port":"17878",
+		"ReadTimeoutSecond":10,
+		"WriteTimeoutSecond":10,
+		"IdleTimeoutSecond":10,
+		"MaxHeaderBytes":1048576
+	},
+	"HttpClient":{
+		"Address":"127.0.0.1",
+		"Port":"15000",
+		"TCPConnectTimeoutSecond":5,
+		"HandshakeTimeoutSecond":5,
+		"RequestTimeoutSecond":10
+	},
+	"RPCServer":{
+		"Address":"",
+		"Port":"20000"
+	},
+	"RPCClient":[
+		{"Address":"","Port":"xxxx","Name":"c0"}
+	]
+}
+
+

@@ -1,0 +1,1377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="97e80478-9316-4fc5-8712-cee9f55f7f98" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/command/testUtil.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/control/roadMapController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/control/roadMapController_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builtinevent/userLostEventProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/builtinevent/userLostEventProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builtinevent/userLostEventProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/builtinevent/userLostEventProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/basicProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/basicProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/basicProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/basicProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType0Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType0Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType0Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType0Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType1Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType1Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType1Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType1Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType2Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType2Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType2Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType2Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType6Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType6Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType6Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType6Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType7Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType7Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType7Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType7Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/clientReadyProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/clientReadyProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/enterHallProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/enterHallProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/enterHallProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/enterHallProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/enterRoomProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/enterRoomProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/enterRoomProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/enterRoomProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/hallInfoProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/hallInfoProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/hallInfoProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/hallInfoProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/heartbeatProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/heartbeatProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType0Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType0Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType0Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType0Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType1Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType1Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType1Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType1Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType2Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType2Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType2Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType2Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType6Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType6Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType6Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType6Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType7Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType7Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/historyResultType7Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/historyResultType7Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/leaveHallProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/leaveHallProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/leaveRoomProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/leaveRoomProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/leaveRoomProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/leaveRoomProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/loginProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/loginProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/loginProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/loginProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/logoutProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/logoutProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/logoutProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/logoutProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/roomInfoProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/roomInfoProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/roomInfoProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/roomInfoProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/serverTimeProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/serverTimeProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/userInfoProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/userInfoProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/userInfoProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/userInfoProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/backstage.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/command.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/command.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/configurer.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/configurer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/configurer_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/configurer_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dbConf/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConf/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/betController.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/betController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/betController_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/betController_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/dbController.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/dbController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/rateController.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/rateController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/room/bet.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/room/bet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/room/controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/room/controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/room/fake.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/room/fake.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/room/historyResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/room/historyResult.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/room/typeData.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/room/typeData.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/room/typeData_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/room/typeData_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fake/creator.go" beforeDir="false" afterPath="$PROJECT_DIR$/fake/creator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fake/creator_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/fake/creator_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/http/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/method/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/method/method.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/roundResultHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/roundResultHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/type0.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/type0.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/type1.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/type1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/type2.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/type2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/type6.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/type6.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/type7.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/type7.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/misc_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/misc_test.go" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="liveServer" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1350">
+              <caret line="110" column="16" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+              <folding>
+                <element signature="e#14#631#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rpc/roundResultHandler.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-848">
+              <caret line="112" selection-start-line="112" selection-end-line="112" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/control/room/historyResult.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="25" column="47" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/roomConf/config.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1950">
+              <caret line="130" column="8" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rpc/type0.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+              <folding>
+                <element signature="e#13#291#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rpc/server.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/config.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2910">
+              <caret line="194" column="8" selection-start-line="194" selection-start-column="8" selection-end-line="194" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/command.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+              <folding>
+                <element signature="e#16#79#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/command/historyResultType0Processor.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2070">
+              <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>duration(</find>
+      <find>post db res</find>
+      <find>DoWithFullPath</find>
+      <find>NewClient</find>
+      <find>resp</find>
+      <find>DBController</find>
+      <find>db</find>
+      <find>BooRoundData</find>
+      <find>RoadMapAPIHost</find>
+      <find>brData</find>
+      <find>roadM</find>
+      <find>code</find>
+      <find>command</find>
+      <find>Request</find>
+      <find>dbCtrl</find>
+      <find>result2Data</find>
+      <find>RoadMapData</find>
+      <find>NewRateController</find>
+      <find>RequestRoadMap</find>
+      <find>SetRoadMapDataFromResult</find>
+      <find>getRoundRecordData</find>
+      <find>postRoundResultToDBAPI</find>
+      <find>RoadMapDataType0</find>
+      <find>CmdRoadMapType0</find>
+      <find>postRoadMap</find>
+      <find>handleHistoryResult</find>
+      <find>handleBet</find>
+      <find>db got count</find>
+      <find>HistoryResultType0</find>
+      <find>return</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&quot;oa/liveServer/config&quot;</replace>
+      <replace>roomInfoProcessor</replace>
+      <replace>CmdBetType1</replace>
+      <replace>user</replace>
+      <replace>varBet</replace>
+      <replace>.Tiger</replace>
+      <replace>roomHandler</replace>
+      <replace>betType0Processor</replace>
+      <replace>s.rmCtrl</replace>
+      <replace>rateCtrl</replace>
+      <replace>CmdBetType0</replace>
+      <replace>nxLog.LevelPanic</replace>
+      <replace>CmdBetType6</replace>
+      <replace>betType6Processor</replace>
+      <replace>historyResultType6Processor</replace>
+      <replace>CmdHistoryResultType6</replace>
+      <replace>RoundProcess2</replace>
+      <replace>betOwner</replace>
+      <replace>Type2</replace>
+      <replace>Type7</replace>
+      <replace>CmdRoundResult7</replace>
+      <replace>ctrlRoom</replace>
+      <replace>oriBet</replace>
+      <replace>roomCtrl</replace>
+      <replace>logger</replace>
+      <replace>logger().</replace>
+      <replace>logger.</replace>
+      <replace>conf.</replace>
+      <replace>github.com/cruisechang/liveServer/</replace>
+      <replace>s.configure</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>/usr/local/Cellar/go@1.8/1.8.7/libexec/src/net/http</dir>
+      <dir>$PROJECT_DIR$/config</dir>
+    </dirStrings>
+  </component>
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.10.3/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/rpc/config.go" />
+        <option value="$PROJECT_DIR$/config/backstage.go" />
+        <option value="$PROJECT_DIR$/test/client.go" />
+        <option value="$PROJECT_DIR$/config/dbConf/config.go" />
+        <option value="$PROJECT_DIR$/config/config.go" />
+        <option value="$PROJECT_DIR$/control/roadMapController_test.go" />
+        <option value="$PROJECT_DIR$/http/client.go" />
+        <option value="$PROJECT_DIR$/control/dbController.go" />
+        <option value="$PROJECT_DIR$/control/room/typeData.go" />
+        <option value="$PROJECT_DIR$/rpc/util.go" />
+        <option value="$PROJECT_DIR$/config/configurer.go" />
+        <option value="$PROJECT_DIR$/command/basicProcessor.go" />
+        <option value="$PROJECT_DIR$/command/basicProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType0Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType1Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType2Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType6Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType7Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/enterHallProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/enterRoomProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/hallInfoProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/heartbeatProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/leaveRoomProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/logoutProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/roomInfoProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/userInfoProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/testUtil.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType0Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType1Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType2Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType6Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType7Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType6Processor.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType7Processor.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType2Processor.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType1Processor.go" />
+        <option value="$PROJECT_DIR$/command/historyResultType0Processor.go" />
+        <option value="$PROJECT_DIR$/rpc/server.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/control/roadMapController.go" />
+        <option value="$PROJECT_DIR$/rpc/type0.go" />
+        <option value="$PROJECT_DIR$/rpc/type1.go" />
+        <option value="$PROJECT_DIR$/rpc/type2.go" />
+        <option value="$PROJECT_DIR$/rpc/type6.go" />
+        <option value="$PROJECT_DIR$/rpc/type7.go" />
+        <option value="$PROJECT_DIR$/config/command.go" />
+        <option value="$PROJECT_DIR$/method/method.go" />
+        <option value="$PROJECT_DIR$/command/loginProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/loginProcessor.go" />
+        <option value="$PROJECT_DIR$/command/roomInfoProcessor.go" />
+        <option value="$PROJECT_DIR$/rpc/roundResultHandler.go" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="NamedScopeManager">
+    <scope name="local" pattern="" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="37" />
+    <option name="y" value="23" />
+    <option name="width" value="1254" />
+    <option name="height" value="777" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="liveServer" type="cbb8eebc:String" user="liveServer" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Tests">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="liveServer" type="cbb8eebc:String" user="liveServer" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/cruise/go/src/oa/liveServer/fake/creator.go" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/control" />
+      <recent name="$PROJECT_DIR$/control/db" />
+      <recent name="$PROJECT_DIR$/builtinEvent" />
+      <recent name="$PROJECT_DIR$/control/room" />
+      <recent name="$PROJECT_DIR$/config/room" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Test.login">
+    <configuration name="client" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/test/client.go|$PROJECT_DIR$/test/client.go" />
+      <package value="github.com/cruisechang/liveServer/test" />
+      <directory value="$PROJECT_DIR$/" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <option name="run" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="liveServer" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="github.com/cruisechang/liveServer" />
+      <directory value="$PROJECT_DIR$/" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestBasicProcessor" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/basicProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestConfigurer" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/config/configurer_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestMisc" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/test/misc_test.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="betCtontroller" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/control/betController_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="betType0" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/betType0Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="betType1" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/betType1Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="betType2" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/betType2Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="betType6" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/betType6Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="betType7" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/betType7Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="enterHall" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/enterHallProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="enterRoom" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/command/enterRoomProcessor_test.go" />
+      <filePath value="$PROJECT_DIR$/command/enterRoomProcessor_test.go" />
+      <pattern value="$PROJECT_DIR$/../../../output/liveServer" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hallInfo" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/hallInfoProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="heartbeat" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/logoutProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="historyResultType0" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/historyResultType0Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="historyResultType1" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/historyResultType1Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="historyResultType2" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/historyResultType2Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="historyResultType6" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/command/historyResultType0Processor_test.go" />
+      <filePath value="$PROJECT_DIR$/command/historyResultType6Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="historyResultType7" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/historyResultType7Processor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="leaveRoom" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/leaveRoomProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="login" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/loginProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="logout" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/logoutProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="roadMapController" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <package value="github.com/cruisechang/liveServer" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/control/roadMapController_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="roomControllerTypeData" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/fake" />
+      <filePath value="$PROJECT_DIR$/control/room/typeData_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="roomInfo" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/roomInfoProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <configuration name="userInfo" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="liveServer" />
+      <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/command/userInfoProcessor_test.go" />
+      <output_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.client" />
+      <item itemvalue="Go Build.liveServer" />
+      <item itemvalue="Go Test.betType0" />
+      <item itemvalue="Go Test.betType1" />
+      <item itemvalue="Go Test.betCtontroller" />
+      <item itemvalue="Go Test.betType2" />
+      <item itemvalue="Go Test.betType6" />
+      <item itemvalue="Go Test.betType7" />
+      <item itemvalue="Go Test.historyResultType0" />
+      <item itemvalue="Go Test.historyResultType1" />
+      <item itemvalue="Go Test.historyResultType2" />
+      <item itemvalue="Go Test.historyResultType6" />
+      <item itemvalue="Go Test.historyResultType7" />
+      <item itemvalue="Go Test.login" />
+      <item itemvalue="Go Test.logout" />
+      <item itemvalue="Go Test.heartbeat" />
+      <item itemvalue="Go Test.userInfo" />
+      <item itemvalue="Go Test.hallInfo" />
+      <item itemvalue="Go Test.roomInfo" />
+      <item itemvalue="Go Test.enterHall" />
+      <item itemvalue="Go Test.enterRoom" />
+      <item itemvalue="Go Test.leaveRoom" />
+      <item itemvalue="Go Test.roadMapController" />
+      <item itemvalue="Go Test.TestMisc" />
+      <item itemvalue="Go Test.roomControllerTypeData" />
+      <item itemvalue="Go Test.TestConfigurer" />
+      <item itemvalue="Go Test.TestBasicProcessor" />
+    </list>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="roadMapController - 2019.01.25 at 12h 32m 20s.xml">
+      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="roadMapController - 2019.01.25 at 12h 33m 18s.xml">
+      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="roadMapController - 2019.01.25 at 12h 35m 27s.xml">
+      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="roadMapController - 2019.01.25 at 14h 37m 15s.xml">
+      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="roadMapController - 2019.01.25 at 17h 15m 32s.xml">
+      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="historyResultType0 - 2019.01.28 at 22h 40m 33s.xml">
+      <configuration name="historyResultType0" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="historyResultType0 - 2019.01.28 at 22h 42m 44s.xml">
+      <configuration name="historyResultType0" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="historyResultType0 - 2019.01.28 at 22h 44m 53s.xml">
+      <configuration name="historyResultType0" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="historyResultType1 - 2019.01.28 at 22h 46m 33s.xml">
+      <configuration name="historyResultType1" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="login - 2019.01.30 at 09h 49m 33s.xml">
+      <configuration name="login" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="26" y="23" width="1254" height="777" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.50128204" visible="true" weight="0.21947195" />
+      <window_info x="1546" y="-754" width="232" height="754" id="Structure" internal_type="SLIDING" order="1" sideWeight="0.49871793" side_tool="true" weight="0.27372262" />
+      <window_info auto_hide="true" id="Favorites" internal_type="SLIDING" order="2" sideWeight="0.5555556" side_tool="true" weight="0.23391813" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900944" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35182482" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4826969" weight="0.37961784" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32554746" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5173031" side_tool="true" weight="0.32972324" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32692307" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32564104" />
+      <window_info anchor="bottom" id="REST Client" order="11" weight="0.4025641" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32967836" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.55716" visible="true" weight="0.2761841" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.44283995" side_tool="true" visible="true" weight="0.2761841" />
+      <window_info id="Favorites" order="2" sideWeight="0.46796116" side_tool="true" weight="0.2726299" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4471154" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.44831732" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32867134" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32867134" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32837838" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="REST Client" order="11" weight="0.36247087" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>r</expression-string>
+        <language-id>go</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/http/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="e#14#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType0Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#17#231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType1Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#17#231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType2Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-757">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding>
+            <element signature="e#17#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType6Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/userInfoProcessor.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/enterRoomProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+          <folding>
+            <element signature="e#17#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/enterHallProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#17#231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType7Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding>
+            <element signature="e#17#290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType6Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding>
+            <element signature="e#17#230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/basicProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#17#262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/heartbeatProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/leaveRoomProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/logoutProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-73">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <folding>
+            <element signature="e#17#231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/userInfoProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType0Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#17#344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType1Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType1Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType2Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="38" column="76" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
+          <folding>
+            <element signature="e#17#299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/testUtil.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="29" />
+          <folding>
+            <element signature="e#17#238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType2Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2175">
+          <caret line="157" column="23" selection-start-line="157" selection-start-column="23" selection-end-line="157" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType6Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2250">
+          <caret line="162" column="48" selection-start-line="162" selection-start-column="48" selection-end-line="162" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType7Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType7Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType6Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="61" column="76" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
+          <folding>
+            <element signature="e#17#343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/util.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/configurer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6315">
+          <caret line="428" column="64" selection-start-line="428" selection-start-column="64" selection-end-line="428" selection-end-column="64" />
+          <folding>
+            <element signature="e#16#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/roadMapController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="68" column="23" lean-forward="true" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+          <folding>
+            <element signature="e#17#334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/basicProcessor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2505">
+          <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+          <folding>
+            <element signature="e#17#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/type2.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/method/method.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6255">
+          <caret line="431" column="33" selection-start-line="431" selection-start-column="33" selection-end-line="431" selection-end-column="33" />
+          <folding>
+            <element signature="e#16#414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/room/typeData.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <folding>
+            <element signature="e#14#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/type1.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/type6.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/type7.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/hallInfoProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-532">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/loginProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="110" column="30" lean-forward="true" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
+          <folding>
+            <element signature="e#17#186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/roadMapController_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/loginProcessor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1226">
+          <caret line="185" selection-start-line="185" selection-end-line="185" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/dbConf/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="110" column="16" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+          <folding>
+            <element signature="e#14#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/room/historyResult.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/roomConf/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="130" column="8" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/type0.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="e#13#291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2910">
+          <caret line="194" column="8" selection-start-line="194" selection-start-column="8" selection-end-line="194" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/command.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#16#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType0Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/roundResultHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-848">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="Copyright.UI">
+        <settings>
+          <last-edited>cruisechang</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <last-edited>local</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+          <order>
+            <scope name="local" />
+          </order>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

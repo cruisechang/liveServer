@@ -1,0 +1,342 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+
+package protobuf;
+
+
+service RPC {
+  rpc DealerLogin(DealerLoginData)returns(DealerLoginRes){}
+  rpc RoomLogin(RoomLoginData)returns (Empty){}
+  rpc OnlineNotify(OnlineNotifyData)returns(Empty){}
+  rpc GetRoomInfo (GetRoomInfoData) returns (GetRoomInfoRes) {}
+ 
+  rpc Waiting(WaitingData)returns(Empty){}
+  rpc BeginBetting(BeginBettingData)returns(BeginBettingRes){}
+  rpc EndBetting(EndBettingData)returns(Empty){}
+  rpc ChangeBoot(ChangeBootData)returns(ChangeBootRes){}
+  rpc CancelRound(CancelRoundData)returns(Empty){}
+
+  //baccarat
+  rpc RoundProcess0(RoundProcess0Data)returns (Empty){}
+  rpc RoundResultType0(RoundResultType0Data)returns(Empty){} 
+  rpc UpdateResultType0(UpdateResultType0Data)returns(Empty){}  
+  rpc HistoryResultType0(HistoryResultType0Data)returns(HistoryResultType0Res){}
+
+  //dragonTiger
+  rpc RoundProcess1(RoundProcess1Data)returns (Empty){}
+  rpc RoundResultType1(RoundResultType1Data)returns(Empty){}
+  rpc UpdateResultType1(UpdateResultType1Data)returns(Empty){}  
+  rpc HistoryResultType1(HistoryResultType1Data)returns(HistoryResultType1Res){}
+ 
+  //sicbo
+  rpc RoundResultType6(RoundResultType6Data)returns(Empty){}
+  rpc UpdateResultType6(UpdateResultType6Data)returns(Empty){}  
+  rpc HistoryResultType6(HistoryResultType6Data)returns(HistoryResultType6Res){}
+  rpc RerollDice(RerollDiceData)returns(Empty){}
+
+  //niuniu
+  rpc RoundProcess2(RoundProcess2Data)returns (Empty){}
+  rpc RoundResultType2(RoundResultType2Data)returns(Empty){}
+  rpc UpdateResultType2(UpdateResultType2Data)returns(Empty){}  
+  rpc HistoryResultType2(HistoryResultType2Data)returns(HistoryResultType2Res){}
+
+  //rolette
+    rpc RoundResultType7(RoundResultType7Data)returns(Empty){}
+    rpc UpdateResultType7(UpdateResultType7Data)returns(Empty){}  
+    rpc HistoryResultType7(HistoryResultType7Data)returns(HistoryResultType7Res){}
+    rpc Rethrow(RethrowData)returns(Empty){}
+}
+message Empty{
+
+}
+message DealerLoginData{
+  int64 roomID=1;
+  int64 dealer=2;
+  string password=3;
+}
+
+message DealerLoginRes{
+  int64 success=1;
+}
+message RoomLoginData{
+  int64 roomID=1;
+}
+message OnlineNotifyData{
+  int64 roomID=1;
+}
+message GetRoomInfoData{
+  int64 roomID=1;
+}
+message GetRoomInfoRes{
+  int64 boot=1;
+  int64 round=2;
+  int64 roomID=3;              
+  string roomName=4;        
+  int64 bankerPlayerMin=5; 
+  int64 bankerPlayerMax=6;
+  int64 tieMin=7;     
+  int64 tieMax=8;              
+  int64 bankerPlayerPairMin=9; 
+  int64 bankerPlayerPairMax=10;
+  int64 online=11;
+  int64 betCountDown=12;
+}
+message WaitingData{
+  int64 roomID=1;
+  int64 boot=2;
+  int64 round=3;
+}
+message BeginBettingData{
+  int64 roomID=1;
+  int64 boot=2;
+  int64 round=3;
+}
+message BeginBettingRes{
+  int64 round=1;
+}
+
+message EndBettingData{
+  int64 roomID=1;
+}
+message ChangeBootData{
+  int64 roomID=1;
+}
+message ChangeBootRes{
+  int64 boot=1;
+}
+message CancelRoundData{
+  int32 roomID=1;
+  int64 round=3;
+}
+
+//baccarat
+message RoundProcess0Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 owner=3;
+  int32 poker=4;
+  int32 index=5;
+}
+message RoundResultType0Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 result=3;
+  int32 bankerPair=4;
+  int32 playerPair=5;
+  int32 bigSmall=6;
+  int32 anyPair=7;
+  int32 perfectPair=8;
+  int32 superSix=9;
+  int32 bankerPoint=10;
+  int32 playerPoint=11;
+  repeated int32 bankerPoker=12;
+  repeated int32 playerPoker=13;
+}
+message UpdateResultType0Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 result=3;
+  int32 bankerPair=4;
+  int32 playerPair=5;
+  int32 bigSmall=6;
+  int32 anyPair=7;
+  int32 perfectPair=8;
+  int32 superSix=9;
+  int32 bankerPoint=10;
+  int32 playerPoint=11;
+  repeated int32 bankerPoker=12;
+  repeated int32 playerPoker=13;
+}
+message HistoryResultType0Data{
+  int32 roomID=1;
+}
+
+message HistoryResultType0Res{
+  repeated HistoryResultType0ResInnerType result=1;
+
+
+}
+message HistoryResultType0ResInnerType {
+  repeated int32 result = 1 [packed=true];
+}
+
+
+//dragonTiger
+message RoundProcess1Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 owner=3;
+  int32 poker=4;
+  int32 index=5;
+}
+message RoundResultType1Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 result=3;
+  int32 dragonPoker=4;
+  int32 tigerPoker=5;
+  int32 dragonOddEven=6;
+  int32 dragonRedBlack=7;
+  int32 tigerOddEven=8;
+  int32 tigerRedBlack=9;
+}
+message UpdateResultType1Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 result=3;
+  int32 dragonPoker=4;
+  int32 tigerPoker=5;
+  int32 dragonOddEven=6;
+  int32 dragonRedBlack=7;
+  int32 tigerOddEven=8;
+  int32 tigerRedBlack=9;
+}
+
+message HistoryResultType1Data{
+  int32 roomID=1;
+}
+
+message HistoryResultType1Res{
+  repeated int32 result=1 [packed=true];
+}
+
+
+//niuniu  type2
+message RoundProcess2Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 owner=3;
+  int32 poker=4;
+  int32 index=5;
+}
+message RoundResultType2Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 head=3;
+  RoundResultType2Owner owner0=4;
+  RoundResultType2Owner owner1=5;
+  RoundResultType2Owner owner2=6;
+  RoundResultType2Owner owner3=7;
+}
+
+message RoundResultType2Owner {
+   int32 result = 1;
+   repeated int32 poker = 2 [packed=true];
+   int32 pattern = 3 ;
+}
+
+
+message UpdateResultType2Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 head=3;
+  RoundResultType2Owner owner0=4;
+  RoundResultType2Owner owner1=5;
+  RoundResultType2Owner owner2=6;
+  RoundResultType2Owner owner3=7;
+}
+
+message HistoryResultType2Data{
+  int32 roomID=1;
+}
+
+message HistoryResultType2Res{
+  repeated HistoryResultType2ResInnerType result=1;
+
+
+}
+message HistoryResultType2ResInnerType {
+  repeated int32 result = 1 [packed=true];
+}
+
+//sicbo type6
+message RoundResultType6Data{
+  int32 roomID=1;
+  int64 round=2;
+  repeated int32 dice =3;
+  int32 sum=4;
+  int32 bigSmall=5;
+  int32 oddEven=6;
+  int32 triple=7;
+  int32 pair=8;
+  repeated RoundResultType6DataInnerType paigow=9;
+}
+message RoundResultType6DataInnerType {
+  repeated int32 result = 1 [packed=true];
+}
+
+message UpdateResultType6Data{
+  int32 roomID=1;
+  int64 round=2;
+  repeated int32 dice =3;
+  int32 sum=4;
+  int32 bigSmall=5;
+  int32 oddEven=6;
+  int32 triple=7;
+  int32 pair=8;
+  repeated RoundResultType6DataInnerType paigow=9;
+}
+
+message HistoryResultType6Data{
+  int32 roomID=1;
+}
+
+message HistoryResultType6Res{
+  repeated int32 result=1 [packed=true];
+}
+
+message RerollDiceData{
+  int32 roomID=1;
+  int64 round=2;
+}
+
+//rolette  type7
+message RoundResultType7Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 result =3;
+  int32 bigSmall=4;
+  int32 oddEven=5;
+  int32 redBlack=6;
+  int32 dozen=7;
+  int32 column=8;
+}
+
+message UpdateResultType7Data{
+  int32 roomID=1;
+  int64 round=2;
+  int32 result =3;
+  int32 bigSmall=4;
+  int32 oddEven=5;
+  int32 redBlack=6;
+  int32 dozen=7;
+  int32 column=8;
+}
+
+message HistoryResultType7Data{
+  int32 roomID=1;
+}
+
+message HistoryResultType7Res{
+  repeated int32 result=1 [packed=true];
+}
+
+message RethrowData{
+  int32 roomID=1;
+  int64 round=2;
+}
+
