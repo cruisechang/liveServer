@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"strings"
 
 	"github.com/cruisechang/liveServer/config"
 	"github.com/cruisechang/liveServer/config/roomConf"
@@ -107,6 +108,7 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 
 	/////2
 	//取玩家投注資料
+	//存投注資料
 	bd, err := h.rpc.roomCtrl.GetBet(h.room)
 	if err != nil {
 		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s roomCtrl.GetBet error =%s", h.logPrefix, err.Error()))
@@ -117,7 +119,7 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 			logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s bet data assertion error =%s", h.logPrefix, err.Error()))
 
 		} else if ln > 0 {
-			logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s has bet ", h.logPrefix))
+			logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s has bet", h.logPrefix))
 
 			//有人投注  計算所有投注的人結果
 			userRes := []config.UserResultResData{
@@ -129,12 +131,18 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 			}
 
 			//轉型 為了range
-			betData, _ := bd.(map[int]interface{})
+			//betData, _ := bd.(map[int]interface{})
 
 			//算錢, patch user credit, post bet
 			//var pid int64
-			for uid, v := range betData {
-				h.handleBet(uid, userRes, h.room, v, h.brData)
+			//for uid, v := range betData {
+			//	if err=h.handleBet(uid, userRes, h.room, v, h.brData);err!=nil{
+			//		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s %s", h.logPrefix, err.Error()))
+			//	}
+			//}
+			if err, errMsg := h.handleBet(bd, userRes, h.room, h.brData); err != nil {
+				errStrings := strings.Join(errMsg, " # ")
+				logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s %s err strings=%s", h.logPrefix, err.Error(), errStrings))
 			}
 
 			//user result
@@ -207,9 +215,76 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 
 	return &pb.Empty{}, nil
 }
+func (h *roundResultHandler) handleBet(betData interface{}, userRes []config.UserResultResData, room entity.Room, brData *roomCtrl.BootRoundData) (error, []string) {
 
-func (h *roundResultHandler) handleBet(uid int, userRes []config.UserResultResData, room entity.Room, v interface{}, brData *roomCtrl.BootRoundData) {
+	var reErr error
+	errMsg := []string{}
+
+	if bd, ok := betData.(map[int]*roomConf.BetType0Data); ok {
+		for uid, v := range bd {
+			if err := h.handleBetProcess(uid, userRes, room, v, brData); err != nil {
+				errMsg = append(errMsg, err.Error())
+			}
+		}
+
+		if len(errMsg) > 0 {
+			reErr = fmt.Errorf(" handlerBet")
+		}
+		return reErr, errMsg
+	}
+	if bd, ok := betData.(map[int]*roomConf.BetType1Data); ok {
+		for uid, v := range bd {
+			if err := h.handleBetProcess(uid, userRes, room, v, brData); err != nil {
+				errMsg = append(errMsg, err.Error())
+			}
+		}
+		if len(errMsg) > 0 {
+			reErr = fmt.Errorf(" handlerBet")
+		}
+		return reErr, errMsg
+	}
+	if bd, ok := betData.(map[int]*roomConf.BetType2Data); ok {
+		for uid, v := range bd {
+			if err := h.handleBetProcess(uid, userRes, room, v, brData); err != nil {
+				errMsg = append(errMsg, err.Error())
+			}
+		}
+		if len(errMsg) > 0 {
+			reErr = fmt.Errorf(" handlerBet")
+		}
+		return reErr, errMsg
+	}
+	if bd, ok := betData.(map[int]*roomConf.BetType6Data); ok {
+		for uid, v := range bd {
+			if err := h.handleBetProcess(uid, userRes, room, v, brData); err != nil {
+				errMsg = append(errMsg, err.Error())
+			}
+		}
+		if len(errMsg) > 0 {
+			reErr = fmt.Errorf(" handlerBet")
+		}
+		return reErr, errMsg
+	}
+	if bd, ok := betData.(map[int]*roomConf.BetType7Data); ok {
+		for uid, v := range bd {
+			if err := h.handleBetProcess(uid, userRes, room, v, brData); err != nil {
+				errMsg = append(errMsg, err.Error())
+			}
+		}
+		if len(errMsg) > 0 {
+			reErr = fmt.Errorf(" handlerBet")
+		}
+		return reErr, errMsg
+	}
+	errMsg = append(errMsg, "*roomConf.BetType data not found")
+	return fmt.Errorf(" handlerBet"), errMsg
+
+}
+
+func (h *roundResultHandler) handleBetProcess(uid int, userRes []config.UserResultResData, room entity.Room, v interface{}, brData *roomCtrl.BootRoundData) error {
+
 	if user, ok := h.rpc.nex.GetUser(uid); ok {
+
 		oriCredit := user.Credit()
 		betCredit, activeCredit, prizeCredit, resultCredit, balanceCredit, winLose, err := h.rpc.rateCtrl.Count(room.Type(), user.Credit(), v, h.in)
 
@@ -220,7 +295,7 @@ func (h *roundResultHandler) handleBet(uid int, userRes []config.UserResultResDa
 		DBUserID, err := user.GetInt64Variable(h.rpc.configure.UserVarDBUserID())
 		if err != nil {
 			h.rpc.nex.GetLogger().LogFile(nxLog.LevelError, fmt.Sprintf("%s post bet get user db userID error=%s\n", h.logPrefix, err.Error()))
-			return
+			return fmt.Errorf(" handlerBet %s", err.Error())
 		}
 
 		//patch credit
@@ -229,7 +304,7 @@ func (h *roundResultHandler) handleBet(uid int, userRes []config.UserResultResDa
 		//h.rpc.httpDo("PATCH", path, bytes.NewBuffer(b))
 		res, err := h.rpc.dbCtrl.Do("PATCH", path, bytes.NewBuffer(b))
 		if err != nil {
-			return
+			return fmt.Errorf(" handleBet %s", err.Error())
 		}
 		defer res.Body.Close()
 
@@ -237,7 +312,7 @@ func (h *roundResultHandler) handleBet(uid int, userRes []config.UserResultResDa
 		rrb, err := json.Marshal(v)
 		if err != nil {
 			h.rpc.nex.GetLogger().LogFile(nxLog.LevelError, fmt.Sprintf("%s post bet json marshal betData error=%s\n", h.logPrefix, err.Error()))
-			return
+			return fmt.Errorf(" handleBet %s", err.Error())
 		}
 		pid, _ := user.GetInt64Variable(h.rpc.configure.UserVarPartnerID())
 
@@ -263,14 +338,20 @@ func (h *roundResultHandler) handleBet(uid int, userRes []config.UserResultResDa
 		bb, err := json.Marshal(br)
 		if err != nil {
 			h.rpc.nex.GetLogger().LogFile(nxLog.LevelError, fmt.Sprintf("%s post bet json marshal  error=%s\n", h.logPrefix, err.Error()))
-			return
+			return fmt.Errorf(" handleBet %s", err.Error())
 		}
 		res2, err2 := h.rpc.dbCtrl.Do("POST", "/bets", bytes.NewBuffer(bb))
 		if err2 != nil {
-			return
+			return fmt.Errorf("  handleBet %s", err.Error())
 		}
 		defer res2.Body.Close()
+
+		h.rpc.nex.GetLogger().LogFile(nxLog.LevelInfo, fmt.Sprintf("%s handleBet post bets complete dbUserID=%d ,param=%s", h.logPrefix, DBUserID, bb))
+
+		return nil
 	}
+
+	return fmt.Errorf(" handleBet h.rpc.nex.GetUser() error ,userID=%d", uid)
 }
 
 func (h *roundResultHandler) countBetLength(bd interface{}) (int, error) {

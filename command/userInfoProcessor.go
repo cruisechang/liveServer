@@ -96,7 +96,7 @@ func (p *UserInfoProcessor) Run(obj *nex.CommandObject) error {
 	//broadcast
 	broadcastDB, err := p.queryBroadcasts("GET", dbConf.DBPathBroadcasts)
 	if err != nil {
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s broadcast error=%s, userID=%d", logPrefix, err.Error(), userDBID))
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s broadcast error=%s, userDBID=%d", logPrefix, err.Error(), userDBID))
 	} else {
 		broadcastData := p.createBroadcasts(conf, broadcastDB)
 		if len(broadcastData) > 1 {
@@ -104,14 +104,14 @@ func (p *UserInfoProcessor) Run(obj *nex.CommandObject) error {
 			resBC, _ := json.Marshal(broadcastData)
 			sendDataStr := base64.StdEncoding.EncodeToString(resBC)
 			p.SendCommand(config.CodeSuccess, 0, conf.CmdBroadcast(), sendDataStr, user, []string{user.ConnID()})
-			logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s broadcast userID=%d, resData=%s", logPrefix, userDBID, string(resBC)))
+			logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s broadcast userDBID=%d, resData=%s", logPrefix, userDBID, string(resBC)))
 		}
 	}
 
 	//banner
 	bannerDB, err := p.queryBanners("GET", dbConf.DBPathBanners)
 	if err != nil {
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s banner error=%s, user id=%d,user=%s", logPrefix, err.Error(), userDBID, user.Name()))
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s banner error=%s, userDBID=%d,user=%s", logPrefix, err.Error(), userDBID, user.Name()))
 	} else {
 		bannerData := p.createBanners(conf, bannerDB)
 		if len(bannerData) > 1 {
@@ -119,11 +119,11 @@ func (p *UserInfoProcessor) Run(obj *nex.CommandObject) error {
 			resBD, _ := json.Marshal(bannerData)
 			sendDataStr := base64.StdEncoding.EncodeToString(resBD)
 			p.SendCommand(config.CodeSuccess, 0, conf.CmdBanner(), sendDataStr, user, []string{user.ConnID()})
-			logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s banner userID=%d, resData=%s", logPrefix, userDBID, string(resBD)))
+			logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s banner userDBID=%d, resData=%s", logPrefix, userDBID, string(resBD)))
 		}
 	}
 
-	logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s complete, userID=%d", logPrefix, userDBID))
+	logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s complete, userDBID=%d", logPrefix, userDBID))
 
 	return nil
 }
