@@ -5,19 +5,36 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/cruisechang/liveServer/config"
 	"github.com/cruisechang/liveServer/config/roomConf"
 	rc "github.com/cruisechang/liveServer/control/room"
+	nx "github.com/cruisechang/nex"
 )
 
 func createRoadMapController() *RoadMapController {
 
+	nex, _ := nx.NewNex(getConfigFilePosition("nexConfig.json"))
 	conf, _ := config.NewConfigurer("config.json")
 	rCtrl := rc.NewController(conf)
-	return NewRoadMapController(conf.RoadMapAPIHost(), rCtrl)
+	return NewRoadMapController(conf.RoadMapAPIHost(), rCtrl,nex.GetLogger())
 
+}
+
+func getConfigFilePosition(fileName string) string {
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+	}
+
+	var buf bytes.Buffer
+	buf.WriteString(dir)
+	buf.WriteString("/")
+	buf.WriteString(fileName)
+
+	return buf.String()
 }
 
 /*
@@ -214,7 +231,7 @@ func TestRoadMapController_Request(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 
-			res, err := rmc.Request(tt.reqData)
+			res, err := rmc.request(tt.reqData)
 			if (err != nil) != tt.wantErr {
 				t.Fatalf("RoadMapController.Request() error = %v, wantErr %v", err, tt.wantErr)
 				return
