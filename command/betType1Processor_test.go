@@ -6,6 +6,8 @@ import (
 	"testing"
 
 	"github.com/cruisechang/liveServer/config"
+	"github.com/cruisechang/liveServer/control"
+	roomCtrl "github.com/cruisechang/liveServer/control/room"
 	"github.com/cruisechang/nex"
 	"github.com/cruisechang/nex/entity"
 )
@@ -14,10 +16,14 @@ func Test_betType1Processor_Run(t *testing.T) {
 	nx, _ := nex.NewNex(getConfigFilePosition("nexConfig.json"))
 	conf, _ := config.NewConfigurer("config.json")
 
+	dbCtrl := control.NewDBController(conf.DBAPIServer())
+	rCtrl := roomCtrl.NewController(conf)
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
+
 	//create room
 	nx.GetRoomManager().CreateRoom(0, conf.RoomType1(), "name")
 
-	p, _ := NewBetType1Processor(getBasicProcessor())
+	p, _ := NewBetType1Processor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	user := entity.NewUser(0, "conn")
 	user.SetCredit(100000)

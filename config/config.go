@@ -176,6 +176,11 @@ type Broadcast struct {
 	RepeatTimes int    `json:"repeatTimes"`
 }
 
+//round post
+type HistoryResultPostParam struct {
+	HistoryResult string `json:"historyResult"` //json string
+}
+
 //路單
 //RoadMapRequest posts data to road map server
 type RoadMapRequest struct {
@@ -184,6 +189,7 @@ type RoadMapRequest struct {
 	RoomType int    `json:"roomType"`
 	Result   string `json:"result"`
 }
+
 //RoadMapResponse receive from road map server
 type RoadMapResponse struct {
 	Code     int    `json:"code"`

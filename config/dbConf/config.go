@@ -6,9 +6,11 @@ const (
 	DBPathRooms       = "/rooms"
 	DBPathHalls       = "/halls"
 	DBPathBanners     = "/banners"
-	DBPathBroadcasts     = "/broadcasts"
+	DBPathBroadcasts  = "/broadcasts"
 
 	CodeSuccess = 0
+
+	DefaultJSON="[]"
 )
 
 type GotData struct {
@@ -42,19 +44,20 @@ type ResponseRoomData struct {
 }
 
 type RoomData struct {
-	RoomID       uint   `json:"roomID"`
-	HallID       uint   `json:"hallID"`
-	Name         string `json:"name"`
-	RoomType     uint   `json:"roomType"`
-	Active       uint   `json:"active"`
-	HLSURL       string `json:"hlsURL"`
-	Boot         uint   `json:"boot"`
-	RoundID      uint64 `json:"round"`
-	Status       int    `json:"status"`
-	BetCountdown uint   `json:"betCountdown"`
-	DealerID     uint   `json:"dealerID"`
-	LimitationID uint   `json:"limitationID"`
-	CreateDate   string `json:"createDate"`
+	RoomID        uint   `json:"roomID"`
+	HallID        uint   `json:"hallID"`
+	Name          string `json:"name"`
+	RoomType      uint   `json:"roomType"`
+	Active        uint   `json:"active"`
+	HLSURL        string `json:"hlsURL"`
+	Boot          uint   `json:"boot"`
+	RoundID       uint64 `json:"round"`
+	Status        int    `json:"status"`
+	BetCountdown  uint   `json:"betCountdown"`
+	DealerID      uint   `json:"dealerID"`
+	LimitationID  uint   `json:"limitationID"`
+	HistoryResult string `json:"historyResult"`
+	CreateDate    string `json:"createDate"`
 }
 type Status struct {
 	Status int `json:"status"`
@@ -139,8 +142,8 @@ type BroadcastData struct {
 type Broadcast struct {
 	BroadcastID uint   `json:"broadcastID"`
 	Content     string `json:"content"`
-	Internal    int `json:"internal"`
-	RepeatTimes int `json:"repeatTimes"`
+	Internal    int    `json:"internal"`
+	RepeatTimes int    `json:"repeatTimes"`
 	Active      uint   `json:"active"`
 	CreateDate  string `json:"createDate"`
 }

@@ -7,7 +7,8 @@ import (
 
 	"encoding/base64"
 	"encoding/json"
-
+	"github.com/cruisechang/liveServer/control"
+	roomCtrl "github.com/cruisechang/liveServer/control/room"
 	"github.com/cruisechang/nex"
 	"github.com/cruisechang/nex/entity"
 )
@@ -16,13 +17,14 @@ func Test_betType2Processor_Run(t *testing.T) {
 	nx, _ := nex.NewNex(getConfigFilePosition("nexConfig.json"))
 	conf, _ := config.NewConfigurer("config.json")
 
+	dbCtrl := control.NewDBController(conf.DBAPIServer())
+	rCtrl := roomCtrl.NewController(conf)
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
+
 	//create room
 	nx.GetRoomManager().CreateRoom(0, conf.RoomType2(), "name")
 
-	//dbCtrl := control.NewDBController(conf.DBAPIServer())
-	//rCtrl := roomCtrl.NewController(conf)
-	//rmc:=control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl,nx.GetLogger())
-	p, _ := NewBetType2Processor(getBasicProcessor())
+	p, _ := NewBetType0Processor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	user := entity.NewUser(0, "conn")
 	user.SetCredit(100000)

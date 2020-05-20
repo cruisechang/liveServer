@@ -5,6 +5,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/cruisechang/liveServer/config/dbConf"
+	"io/ioutil"
+	"net/http"
 	"strings"
 
 	"github.com/cruisechang/liveServer/config"
@@ -80,7 +83,10 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 
 	/////1
 	//post round result to db api server
-	h.postRoundResultToDBAPI(h.logPrefix, logger, h.room, h.in, h.brData, getRoundRecordData)
+	err := h.postRoundResultToDBAPI(h.room, h.in, h.brData, getRoundRecordData)
+	if err != nil {
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s postRoundResultToDBAPI err=%s", h.logPrefix, err.Error()))
+	}
 
 	//send to client
 	if len(hallReceivers) > 0 {
@@ -98,11 +104,11 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 		//roomStatus
 		b, err := getRoomStatusResponse(h.room, conf.RoomStatusRoundResult(), h.brData.Boot, h.round, getStatusStart())
 		if err != nil {
-			logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s getRoomStatusResponse  error=%s", h.logPrefix, err.Error()))
+			logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s getRoomStatusResponse error=%s", h.logPrefix, err.Error()))
 		} else {
 			sendDataStr := base64.StdEncoding.EncodeToString(b)
 			h.rpc.sendCommand(config.CodeSuccess, 0, conf.CmdRoomStatus(), sendDataStr, nil, hallReceivers)
-			logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s send roomStatus =%s", h.logPrefix, string(b)))
+			logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s send roomStatus=%s", h.logPrefix, string(b)))
 		}
 	}
 
@@ -130,16 +136,7 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 				},
 			}
 
-			//轉型 為了range
-			//betData, _ := bd.(map[int]interface{})
-
 			//算錢, patch user credit, post bet
-			//var pid int64
-			//for uid, v := range betData {
-			//	if err=h.handleBet(uid, userRes, h.room, v, h.brData);err!=nil{
-			//		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s %s", h.logPrefix, err.Error()))
-			//	}
-			//}
 			if err, errMsg := h.handleBet(bd, userRes, h.room, h.brData); err != nil {
 				errStrings := strings.Join(errMsg, " # ")
 				logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s %s err strings=%s", h.logPrefix, err.Error(), errStrings))
@@ -158,8 +155,14 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 	}
 
 	/////3
-	//room add result
-	err = h.addHistoryResult(h.logPrefix, h.room, h.in)
+	//room add history result
+	hrs, err := h.handleHistoryResult(h.room, h.in)
+	if err != nil {
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s handleHistoryResult error=%s", h.logPrefix, err.Error()))
+	}
+
+	/*
+	err = h.addHistoryResult(h.room, h.in)
 	if err != nil {
 		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s addHistoryResult error=%s", h.logPrefix, err.Error()))
 	}
@@ -167,6 +170,7 @@ func (h *roundResultHandler) handle() (*pb.Empty, error) {
 	if err != nil {
 		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s get history result error=%s ", h.logPrefix, err.Error()))
 	}
+	*/
 
 	//////4 road map
 	postData, err := roadMapCtrl.GetRoadMapRequestData(h.room.HallID(), h.room.ID(), h.room.Type(), hrs)
@@ -376,7 +380,29 @@ func (h *roundResultHandler) countBetLength(bd interface{}) (int, error) {
 
 }
 
-func (h *roundResultHandler) addHistoryResult(logPrefix string, room entity.Room, data interface{}) error {
+func (h *roundResultHandler) handleHistoryResult(room entity.Room, data interface{}) (interface{}, error) {
+	//room add history result
+	err := h.addHistoryResult(room, h.in)
+	if err != nil {
+		return nil, fmt.Errorf(" addHistoryResult error=%s", err.Error())
+	}
+
+	hrs, err := h.rpc.roomCtrl.GetHistoryResult(h.room)
+	if err != nil {
+		return nil, fmt.Errorf(" GetHistoryResult error=%s", err.Error())
+	}
+
+	pd, err := h.getPostHistoryResultData(room.Type(), hrs)
+	if err != nil {
+		return nil, fmt.Errorf(" getPostHistoryResultData error=%s", err.Error())
+	}
+	err = h.postHistoryResultToDBAPI(room.ID(), pd)
+	if err != nil {
+		return nil, fmt.Errorf(" postHistoryResultToDBAPI error=%s", err.Error())
+	}
+	return hrs, nil
+}
+func (h *roundResultHandler) addHistoryResult(room entity.Room, data interface{}) error {
 
 	rc := h.rpc.roomCtrl
 	if in, ok := data.(*pb.RoundResultType0Data); ok {
@@ -413,16 +439,97 @@ func (h *roundResultHandler) addHistoryResult(logPrefix string, room entity.Room
 		return rc.AddHistoryResultType(room, in.Result)
 	}
 
-	return fmt.Errorf("%s addHistoryFunc data assertion error=", logPrefix)
+	return fmt.Errorf(" addHistoryFunc data assertion error")
+}
+func (h *roundResultHandler) getPostHistoryResultData(roomType int, historyResult interface{}) ([]byte, error) {
+
+	switch roomType {
+	case h.rpc.configure.RoomType0():
+		if m, ok := historyResult.(roomConf.HistoryResultType0); !ok {
+			return nil, fmt.Errorf("getPostHistoryResultData RoomType0 assertion historyResult error,  data=%+v", historyResult)
+		} else {
+			return json.Marshal(m)
+		}
+	case h.rpc.configure.RoomType1():
+		if m, ok := historyResult.(roomConf.HistoryResultType1); !ok {
+			return nil, fmt.Errorf("getPostHistoryResultData RoomType1 assertion historyResult error,  data=%+v", historyResult)
+		} else {
+			return json.Marshal(m)
+		}
+	case h.rpc.configure.RoomType2():
+		if m, ok := historyResult.(roomConf.HistoryResultType2); !ok {
+			return nil, fmt.Errorf("getPostHistoryResultData RoomType2 assertion historyResult error,  data=%+v", historyResult)
+		} else {
+			return json.Marshal(m)
+		}
+	case h.rpc.configure.RoomType6():
+		if m, ok := historyResult.([]*roomConf.HistoryResultType6); !ok {
+			return nil, fmt.Errorf("getPostHistoryResultData RoomType6 assertion historyResult error, data=%+v", historyResult)
+		} else {
+			return json.Marshal(m)
+		}
+	case h.rpc.configure.RoomType7():
+		if m, ok := historyResult.(roomConf.HistoryResultType7); !ok {
+			return nil, fmt.Errorf("getPostHistoryResultData RoomType7 assertion historyResult error,  data=%+v", historyResult)
+		} else {
+			return json.Marshal(m)
+		}
+	default:
+		return nil, fmt.Errorf("getPostHistoryResultData switch roomType not match")
+	}
+}
+
+func (h *roundResultHandler) postHistoryResultToDBAPI(roomID int, data []byte) error {
+
+	d := config.HistoryResultPostParam{
+		HistoryResult: string(data),
+	}
+	b, err := json.Marshal(d)
+	if err != nil {
+		return err
+	}
+	path := "/rooms/" + strconv.FormatUint(uint64(roomID), 10) + "/historyResult"  //historyResult
+	h.rpc.nex.GetLogger().LogFile(nxLog.LevelInfo, fmt.Sprintf("roundResultHandler postHistoryResultToDBAPI  path=%s", path))
+
+	resp, err := h.rpc.dbCtrl.Do("PATCH", path, bytes.NewBuffer(b))
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("response status code error, code=%d", resp.StatusCode)
+	}
+
+	if resp.Body == nil {
+		return fmt.Errorf("response body=nil")
+	}
+
+	body, _ := ioutil.ReadAll(resp.Body)
+
+	got := &dbConf.GotData{}
+	err = json.Unmarshal(body, got)
+	if err != nil {
+		return fmt.Errorf("response body json.Unmarshal error=%s", err.Error())
+	}
+
+	if got.Code != config.CodeSuccess {
+		return fmt.Errorf("response data code error,code=%d", got.Code)
+	}
+	if got.Count != 1 {
+		return fmt.Errorf("response data count!=1,count=-%d", got.Count)
+	}
+
+	return nil
 }
 
 //post round result to db api
-func (h *roundResultHandler) postRoundResultToDBAPI(logPrefix string, logger nxLog.Logger, room entity.Room, rpcIn interface{}, brData *roomCtrl.BootRoundData, getRoundRecordDataFunc func(in interface{}, brData *roomCtrl.BootRoundData) ([]byte, error)) {
+func (h *roundResultHandler) postRoundResultToDBAPI(room entity.Room, rpcIn interface{}, brData *roomCtrl.BootRoundData, getRoundRecordDataFunc func(in interface{}, brData *roomCtrl.BootRoundData) ([]byte, error)) error {
 
 	//round record
 	rr, err := getRoundRecordDataFunc(rpcIn, brData)
 	if err != nil {
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s postRoundRecord getRoundRecordData error=%s\n", logPrefix, err.Error()))
+		return err
 	}
 
 	rp := config.RoundPostParam{
@@ -436,15 +543,38 @@ func (h *roundResultHandler) postRoundResultToDBAPI(logPrefix string, logger nxL
 
 	b, err := json.Marshal(rp)
 	if err != nil {
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s postRoundResult json marshal  error=%s\n", logPrefix, err.Error()))
+		return err
 	}
 	resp, err := h.rpc.dbCtrl.Do("POST", "/rounds", bytes.NewBuffer(b))
 	if err != nil {
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s post db   error=%s\n", logPrefix, err.Error()))
+		return err
 	}
 	defer resp.Body.Close()
 
-	logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s postRoundRecord complete body=%s\n", logPrefix, string(b)))
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("response status code error, code=%d", resp.StatusCode)
+	}
+
+	if resp.Body == nil {
+		return fmt.Errorf("response body=nil")
+	}
+
+	body, _ := ioutil.ReadAll(resp.Body)
+
+	got := &dbConf.GotData{}
+	err = json.Unmarshal(body, got)
+	if err != nil {
+		return fmt.Errorf("response body json.Unmarshal error=%s", err.Error())
+	}
+
+	if got.Code != config.CodeSuccess {
+		return fmt.Errorf("response data code error,code=%d", got.Code)
+	}
+	//if got.Count != 1 {
+	//	return fmt.Errorf("response data count!=1,count=-%d", got.Count)
+	//}
+
+	return nil
 }
 
 func (h *roundResultHandler) getRoundResultCommandString(conf config.Configurer, roomType int) (string, error) {

@@ -17,16 +17,20 @@ func Test_betType0Processor_Run(t *testing.T) {
 	nx, _ := nex.NewNex(getConfigFilePosition("nexConfig.json"))
 	conf, _ := config.NewConfigurer("config.json")
 
-	//create room
-	nx.GetRoomManager().CreateRoom(0, conf.RoomType0(),"name")
+	dbCtrl := control.NewDBController(conf.DBAPIServer())
+	rCtrl := roomCtrl.NewController(conf)
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
 
-	p, _ := NewBetType0Processor(getBasicProcessor())
+	//create room
+	nx.GetRoomManager().CreateRoom(0, conf.RoomType0(), "name")
+
+	p, _ := NewBetType0Processor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	user := entity.NewUser(0, "conn")
 	user.SetCredit(100000)
 
 	obj := &[]config.BetType0CmdData{
-		config.BetType0CmdData{
+		{
 			RoomID:      0,
 			Banker:      10,
 			Player:      11,
@@ -118,8 +122,8 @@ func Test_betType0Processor_countBetSum(t *testing.T) {
 
 	dbCtrl := control.NewDBController(conf.DBAPIServer())
 	rCtrl := roomCtrl.NewController(conf)
-	rmc:=control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl,nx.GetLogger())
-	NewBetType0Processor(NewBasicProcessor(nx, conf,dbCtrl,rmc))
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
+	NewBetType0Processor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	bb := &config.BetType0CmdData{
 		Banker:      100,
@@ -144,9 +148,9 @@ func Test_betType0Processor_countBetSum(t *testing.T) {
 		want int
 	}{
 		{
-			name:"0",
-			args:args{bb},
-			want:1000,
+			name: "0",
+			args: args{bb},
+			want: 1000,
 		},
 	}
 

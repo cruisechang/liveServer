@@ -167,11 +167,11 @@ func TestRoadMapController_Request(t *testing.T) {
 	data6 := createHistoryResult(6)
 	data7 := createHistoryResult(7)
 
-	bd0, _ := rmc.getRoadMapRequestData(100, 1, 0, data0)
-	bd1, _ := rmc.getRoadMapRequestData(100, 1, 1, data1)
-	bd2, _ := rmc.getRoadMapRequestData(100, 1, 2, data2)
-	bd6, _ := rmc.getRoadMapRequestData(100, 1, 6, data6)
-	bd7, _ := rmc.getRoadMapRequestData(100, 1, 7, data7)
+	bd0, _ := rmc.GetRoadMapRequestData(100, 1, 0, data0)
+	bd1, _ := rmc.GetRoadMapRequestData(100, 1, 1, data1)
+	bd2, _ := rmc.GetRoadMapRequestData(100, 1, 2, data2)
+	bd6, _ := rmc.GetRoadMapRequestData(100, 1, 6, data6)
+	bd7, _ := rmc.GetRoadMapRequestData(100, 1, 7, data7)
 
 	tests := []struct {
 		name    string

@@ -49,19 +49,18 @@ type RoadMapController struct {
 //InitRoadMapData gets road map data from road map server when server start.
 func (c *RoadMapController) InitRoadMapData(rooms []entity.Room) error {
 
-	logPrefix := "RoadMapController"
+	logPrefix := "RoadMapController InitRoadMapData "
 
 	for _, v := range rooms {
 
 		hrs, err := c.roomCtrl.GetHistoryResult(v)
 		if err != nil {
-			c.logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s GetHistoryResult() error=%s", logPrefix, err.Error()))
-			return fmt.Errorf("%s GetHistoryResult() error=%s", logPrefix, err.Error())
+			//c.logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s GetHistoryResult() error=%s", logPrefix, err.Error()))
+			return fmt.Errorf("%s roomCtroller.GetHistoryResult() error=%s", logPrefix, err.Error())
 		}
 
 		postData, err := c.GetRoadMapRequestData(v.HallID(), v.ID(), v.Type(), hrs)
 		if err != nil {
-			c.logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s getRoadMapRequestData() error=%s", logPrefix, err.Error()))
 			return fmt.Errorf("%s getRoadMapRequestData() error=%s", logPrefix, err.Error())
 		}
 
@@ -74,16 +73,12 @@ func (c *RoadMapController) InitRoadMapData(rooms []entity.Room) error {
 
 		err = json.Unmarshal(body, resData)
 		if err != nil {
-			c.logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s Unmarshal() error=%s", logPrefix, err.Error()))
-		}
-
-		if resData.Code != config.CodeSuccess {
-			c.logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s resData code error code=%d", logPrefix, resData.Code))
+			return fmt.Errorf("%s json.Unmarshal() response body error=%s", logPrefix, err.Error())
 		}
 
 		//resData.RoomType
 		if resData.Code != config.CodeSuccess {
-			return fmt.Errorf("%s roadMapResponse code error got=%d, want=%d,post data=%s", logPrefix, resData.Code, config.CodeSuccess, string(postData))
+			return fmt.Errorf("%s roadMapResponse code error got=%d, got body=%s post data=%s", logPrefix, resData.Code, string(body), string(postData))
 		}
 
 		 err = c.SetRoadMapDataFromResult(v.ID(), v.Type(), resData.Result)

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+
 	"github.com/cruisechang/liveServer/config"
 	"github.com/cruisechang/liveServer/config/roomConf"
 	roomCtrl "github.com/cruisechang/liveServer/control/room"
@@ -30,7 +31,7 @@ func NewRoomInfoProcessor(processor BasicProcessor) (*roomInfoProcessor, error) 
 }
 
 func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
-	logPrefix:="roomInfoProcessor"
+	logPrefix := "roomInfoProcessor"
 	logger := p.GetLogger()
 
 	logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s begin", logPrefix))
@@ -39,13 +40,13 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 	user := obj.User
 
 	if user == nil {
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("roomInfoProcessor user==nil"))
-		return errors.New("roomInfoProcessor user==nil")
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s user==nil", logPrefix))
+		return fmt.Errorf("%s user==nil", logPrefix)
 	}
 
 	defer func() {
 		if r := recover(); r != nil {
-			logger.LogFile(nxLog.LevelPanic, fmt.Sprintf("roomInfoProcessor panic:%v", r))
+			logger.LogFile(nxLog.LevelPanic, fmt.Sprintf("%s panic:%v", logPrefix, r))
 		}
 	}()
 
@@ -54,7 +55,7 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 
 	if err != nil {
 		p.SendCommand(config.CodeBase64DecodeFailed, 0, conf.CmdRoomInfo(), p.DefaultSendData(), user, []string{user.ConnID()})
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("roomInfoProcessor base64 decode cmd data error,user:%s,error:%s", user.Name(), err.Error()))
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s base64 decode cmd data error,user:%s,error:%s", logPrefix, user.Name(), err.Error()))
 		return err
 	}
 
@@ -63,7 +64,7 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 
 	if err := json.Unmarshal(deStr, &data); err != nil {
 		p.SendCommand(config.CodeJsonUnmarshalJsonFailed, 0, conf.CmdRoomInfo(), p.DefaultSendData(), user, []string{user.ConnID()})
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("roomInfoProcessor json unmarshal cmd data error,user=%s,error=%s, cata=%s", user.Name(), err.Error(), deStr))
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s json unmarshal cmd data error,user=%s,error=%s, cata=%s", logPrefix, user.Name(), err.Error(), deStr))
 		return err
 	}
 
@@ -72,35 +73,36 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 
 	//get rooms
 	hallID := data[0].HallID
+	roomID := data[0].RoomID
 	var hall entity.Hall
 	rooms := []entity.Room{}
 
 	//get hall
 	if hallID == conf.UnAssigned() {
 		p.SendCommand(config.CodeHallIDError, 0, conf.CmdRoomInfo(), p.DefaultSendData(), user, []string{user.ConnID()})
-		return err
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s  hallID=%d", logPrefix,hallID))
+		return fmt.Errorf("%s hallID error id=%d", logPrefix, hallID)
 	}
 
 	//hall id not in hallmanager
 	if !hm.ContainHall(hallID) {
 		p.SendCommand(config.CodeHallNotFound, 0, conf.CmdRoomInfo(), p.DefaultSendData(), user, []string{user.ConnID()})
-		return err
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s  hallManager.ContainHall()!=true,hallID=%d", logPrefix,hallID))
+		return fmt.Errorf("%s hallManager.ContainHall(hallID) !=true", logPrefix)
 	}
 
 	hall, _ = hm.GetHall(hallID)
 
-	//all room in this hall
-	if data[0].RoomID == conf.UnAssigned() {
+	//get all room in this hall
+	if roomID == conf.UnAssigned() {
 		rooms = hall.GetRooms()
-
-		//for _, v := range rooms {
-		//	r, _ := rm.GetRoom(v.ID())
-		//	rooms = append(rooms, r)
-		//}
-
 	} else {
-		r, _ := rm.GetRoom(data[0].RoomID)
+		r, _ := rm.GetRoom(roomID)
 		rooms = append(rooms, r)
+	}
+
+	if len(rooms) == 0 {
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s roomManager.GetRoom() len==0 hallID=%d,roomID=%d", logPrefix, hallID, roomID))
 	}
 
 	//res data
@@ -128,21 +130,21 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 			tpd := p.roomCtrl.GetTypeData(r)
 			td, ok := tpd.(*roomConf.TypeData0)
 			if !ok {
-				return errors.New(fmt.Sprintf("getTypeData assertion error roomID=%d, roomType= %d", r.Type(), r.ID()))
+				return errors.New(fmt.Sprintf("%s getTypeData assertion error roomID=%d, roomType= %d", logPrefix, r.Type(), r.ID()))
 			}
 			re.TypeData0 = td
 		case conf.RoomType1():
 			tpd := p.roomCtrl.GetTypeData(r)
 			td, ok := tpd.(*roomConf.TypeData1)
 			if !ok {
-				return errors.New(fmt.Sprintf("getTypeData assertion error roomID=%d, roomType= %d", r.Type(), r.ID()))
+				return errors.New(fmt.Sprintf("%s getTypeData assertion error roomID=%d, roomType= %d", logPrefix, r.Type(), r.ID()))
 			}
 			re.TypeData1 = td
 		case conf.RoomType2():
 			tpd := p.roomCtrl.GetTypeData(r)
 			td, ok := tpd.(*roomConf.TypeData2)
 			if !ok {
-				return errors.New(fmt.Sprintf("getTypeData assertion error roomID=%d, roomType= %d", r.Type(), r.ID()))
+				return errors.New(fmt.Sprintf("%s getTypeData assertion error roomID=%d, roomType= %d", logPrefix, r.Type(), r.ID()))
 			}
 			re.TypeData2 = td
 		case conf.RoomType3():
@@ -158,14 +160,14 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 			tpd := p.roomCtrl.GetTypeData(r)
 			td, ok := tpd.(*roomConf.TypeData6)
 			if !ok {
-				return errors.New(fmt.Sprintf("getTypeData assertion error roomID=%d, roomType= %d", r.Type(), r.ID()))
+				return errors.New(fmt.Sprintf("%s getTypeData assertion error roomID=%d, roomType= %d", logPrefix, r.Type(), r.ID()))
 			}
 			re.TypeData6 = td
 		case conf.RoomType7():
 			tpd := p.roomCtrl.GetTypeData(r)
 			td, ok := tpd.(*roomConf.TypeData7)
 			if !ok {
-				return errors.New(fmt.Sprintf("getTypeData assertion error roomID=%d, roomType= %d", r.Type(), r.ID()))
+				return errors.New(fmt.Sprintf("%s getTypeData assertion error roomID=%d, roomType= %d", logPrefix, r.Type(), r.ID()))
 			}
 			re.TypeData7 = td
 		}
@@ -176,7 +178,7 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 	b, err := json.Marshal(resData)
 	if err != nil {
 		p.DisconnectUser(user.UserID())
-		logger.LogFile(nxLog.LevelError, fmt.Sprintf("roomInfoProcessor json marshal res data error,user:%s,error:%s", user.Name(), err.Error()))
+		logger.LogFile(nxLog.LevelError, fmt.Sprintf("%s json marshal res data error,user:%s,error:%s", logPrefix, user.Name(), err.Error()))
 		return err
 	}
 
@@ -184,7 +186,7 @@ func (p *roomInfoProcessor) Run(obj *nex.CommandObject) error {
 	sendData := base64.StdEncoding.EncodeToString(b)
 
 	p.SendCommand(config.CodeSuccess, 0, conf.CmdRoomInfo(), sendData, user, []string{user.ConnID()})
-	logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("roomInfoProcessor complete  user id=%d,user=%s, resData=%+v ", user.UserID(), user.Name(), resData))
+	logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("%s complete  user id=%d,user=%s, resData=%+v ", logPrefix, user.UserID(), user.Name(), resData))
 
 	return nil
 }

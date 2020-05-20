@@ -15,29 +15,30 @@ func Test_betType6Processor_Run(t *testing.T) {
 	nx, _ := nex.NewNex(getConfigFilePosition("nexConfig.json"))
 	conf, _ := config.NewConfigurer("config.json")
 
-	//create room
-	nx.GetRoomManager().CreateRoom(0,conf.RoomType0(),"name")
+	dbCtrl := control.NewDBController(conf.DBAPIServer())
+	rCtrl := roomCtrl.NewController(conf)
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
 
-	//dbCtrl := control.NewDBController(conf.DBAPIServer())
-	//rCtrl := roomCtrl.NewController(conf)
-	//rmc:=control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl,nx.GetLogger())
-	p, _ := NewBetType6Processor(getBasicProcessor())
+	//create room
+	nx.GetRoomManager().CreateRoom(0, conf.RoomType6(), "name")
+
+	p, _ := NewBetType0Processor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	user := entity.NewUser(0, "conn")
 	user.SetCredit(100000)
 
 	obj := &[]config.BetType6CmdData{
 		{
-			RoomID:      0,
-			Small  :0,
-			Big    :5,
-			Odd    :10,
-			Even   :10,
-			Sum    :[]int{0,10,0,0,0,0,0,0,0,0,0,0,0,0},
-			Dice   :[]int{5,0,0,0,0,0},
-			Triple :[]int{10,0,0,0,0,0,0},
-			Pair   :[]int{10,0,0,0,0,0},
-			Paigow :[]int{10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+			RoomID: 0,
+			Small:  0,
+			Big:    5,
+			Odd:    10,
+			Even:   10,
+			Sum:    []int{0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+			Dice:   []int{5, 0, 0, 0, 0, 0},
+			Triple: []int{10, 0, 0, 0, 0, 0, 0},
+			Pair:   []int{10, 0, 0, 0, 0, 0},
+			Paigow: []int{10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 		},
 	}
 	c, err := json.Marshal(obj)
@@ -108,7 +109,6 @@ func Test_betType6Processor_Run(t *testing.T) {
 		})
 	}
 
-
 }
 
 func Test_betType6Processor_CountBetSum(t *testing.T) {
@@ -116,72 +116,71 @@ func Test_betType6Processor_CountBetSum(t *testing.T) {
 	conf, _ := config.NewConfigurer("config.json")
 
 	//create room
-	nx.GetRoomManager().CreateRoom(0,conf.RoomType0(),"name")
+	nx.GetRoomManager().CreateRoom(0, conf.RoomType0(), "name")
 
 	dbCtrl := control.NewDBController(conf.DBAPIServer())
 	rCtrl := roomCtrl.NewController(conf)
-	rmc:=control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl,nx.GetLogger())
-	 NewBetType6Processor(NewBasicProcessor(nx, conf,dbCtrl,rmc))
-
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
+	NewBetType6Processor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	obj := &config.BetType6CmdData{
-			RoomID:      0,
-			Small  :0,
-			Big    :5,
-			Odd    :10,
-			Even   :10,
-			Sum    :[]int{0,10,0,0,0,0,0,0,0,0,0,0,0,0},
-			Dice   :[]int{5,0,0,0,0,0},
-			Triple :[]int{10,0,0,0,0,0,0},
-			Pair   :[]int{10,0,0,0,0,0},
-			Paigow :[]int{10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+		RoomID: 0,
+		Small:  0,
+		Big:    5,
+		Odd:    10,
+		Even:   10,
+		Sum:    []int{0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+		Dice:   []int{5, 0, 0, 0, 0, 0},
+		Triple: []int{10, 0, 0, 0, 0, 0, 0},
+		Pair:   []int{10, 0, 0, 0, 0, 0},
+		Paigow: []int{10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	}
 	obj1 := &config.BetType6CmdData{
-		RoomID:      0,
-		Small  :0,
-		Big    :5,
-		Odd    :10,
-		Even   :10,
-		Sum    :[]int{0,10,0,0,0,0,0,0,0,0,0,0,0,0},
-		Dice   :[]int{5,0,0,0,0,0},
-		Triple :[]int{10,0,0,0,0,0,0},
-		Pair   :[]int{10,0,0,0,0,0},
-		Paigow :[]int{10,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0 },
+		RoomID: 0,
+		Small:  0,
+		Big:    5,
+		Odd:    10,
+		Even:   10,
+		Sum:    []int{0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+		Dice:   []int{5, 0, 0, 0, 0, 0},
+		Triple: []int{10, 0, 0, 0, 0, 0, 0},
+		Pair:   []int{10, 0, 0, 0, 0, 0},
+		Paigow: []int{10, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0},
 	}
 	obj2 := &config.BetType6CmdData{
-		RoomID:   0,
-		Small  :0,
-		Big    :5,
-		Odd    :10,
-		Even   :10,
-		Sum    :[]int{0,10,0,0,0,0,0,0,0,1,0,0,0,0},
-		Dice   :[]int{5,0,0,0,0,0},
-		Triple :[]int{10,0,0,0,0,0,1},
-		Pair   :[]int{10,0,0,0,0,1},
-		Paigow :[]int{10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+		RoomID: 0,
+		Small:  0,
+		Big:    5,
+		Odd:    10,
+		Even:   10,
+		Sum:    []int{0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+		Dice:   []int{5, 0, 0, 0, 0, 0},
+		Triple: []int{10, 0, 0, 0, 0, 0, 1},
+		Pair:   []int{10, 0, 0, 0, 0, 1},
+		Paigow: []int{10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	}
 
 	type args struct {
 		bet *config.BetType6CmdData
 	}
 	tests := []struct {
-		name    string
-		args    args
+		name string
+		args args
 		want int
 	}{
 		{
-			name:    "0",
-			args:    args{obj},
+			name: "0",
+			args: args{obj},
 			want: 70,
 		},
 		{
-			name:    "1",
-			args:    args{obj1},
+			name: "1",
+			args: args{obj1},
 			want: 75,
 		},
 		{
-			name:    "2",
-			args:    args{obj2},
+			name: "2",
+			args: args{obj2},
 			want: 73,
 		},
 	}
@@ -189,9 +188,8 @@ func Test_betType6Processor_CountBetSum(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			roomBet := control.CmdDataToRoomDataType6(tt.args.bet)
 			if got, _ := control.CountBetSumType6(roomBet); got != tt.want {
-				t.Errorf("betType6Processor.CountBetSum() error, got = %d, want %d, name=%s", got, tt.want,tt.name)
+				t.Errorf("betType6Processor.CountBetSum() error, got = %d, want %d, name=%s", got, tt.want, tt.name)
 			}
 		})
 	}
 }
-

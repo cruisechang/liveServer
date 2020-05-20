@@ -26,17 +26,15 @@ import (
 //fake create room
 func main() {
 
-
 	nex, err := nx.NewNex(getConfigFilePosition("nexConfig.json"))
 	if err != nil {
 		exit(1, fmt.Errorf("NewNex error:%s", err.Error()))
 	}
 	logger := nex.GetLogger()
 
-
 	defer func() {
 		if r := recover(); r != nil {
-			logger.LogFile(nxLog.LevelPanic,fmt.Sprintf("main panic=%v",r))
+			logger.LogFile(nxLog.LevelPanic, fmt.Sprintf("main panic=%v", r))
 		}
 	}()
 
@@ -95,6 +93,8 @@ func main() {
 		exit(251, err)
 	}
 
+	//fmt.Printf("rooms=%v\n",rooms)
+
 	hm := nex.GetHallManager()
 
 	method.CreateHalls(hm, hallData)
@@ -105,125 +105,136 @@ func main() {
 
 	method.SetHallRoom(halls, rooms)
 
+	//h100, _ := hm.GetHall(100)
+	//h200, _ := hm.GetHall(200)
+
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("rooms=%v\n", rooms))
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("rooms=%s\n", rooms))
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("halls=%v\n", halls))
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("halls=%s\n", halls))
+
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("h100 rooms=%v\n", h100.GetRooms()))
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("h100 rooms=%s\n", h100.GetRooms()))
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("h200 rooms=%v\n", h200.GetRooms()))
+	//logger.LogFile(nxLog.LevelInfo, fmt.Sprintf("h200 rooms=%s\n", h200.GetRooms()))
+
+
+	//fmt.Printf("halls=%s\n",halls)
+
 	//init road map data
-	rmc:=control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl,nex.GetLogger())
-	err=rmc.InitRoadMapData(rooms)
-	if err!=nil{
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nex.GetLogger())
+	err = rmc.InitRoadMapData(rooms)
+	if err != nil {
 		logger.LogFile(nxLog.LevelError, fmt.Sprintf("roadMap error=%s", err.Error()))
 		exit(260, err)
 	}
-	//post路單server
-	//取所有room
-	//hr,_:=rCtrl.GetHistoryResult(rooms[0])
-	//getHistoryResultPostData(rooms[0].HallID(), rooms[0].ID(), rooms[0].Type(), hr)
-
 
 	//processor
-	lp, err := command.NewLoginProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	lp, err := command.NewLoginProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(300, err)
 	}
 
-	cr, err := command.NewClientReadyProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	cr, err := command.NewClientReadyProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(301, err)
 	}
 
-	hi, err := command.NewHallInfoProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	hi, err := command.NewHallInfoProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(302, err)
 	}
 
-	ui, err := command.NewUserInfoProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	ui, err := command.NewUserInfoProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(303, err)
 	}
 
-	eh, err := command.NewEnterHallProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	eh, err := command.NewEnterHallProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(304, err)
 	}
 
-	ri, err := command.NewRoomInfoProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	ri, err := command.NewRoomInfoProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(305, err)
 	}
 
-	er, err := command.NewEnterRoomProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	er, err := command.NewEnterRoomProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(306, err)
 	}
 
-	lr, err := command.NewLeaveRoomProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	lr, err := command.NewLeaveRoomProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(307, err)
 	}
 
-	lh, err := command.NewLeaveHallProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	lh, err := command.NewLeaveHallProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(308, err)
 	}
 
-	lg, err := command.NewLogoutProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	lg, err := command.NewLogoutProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(309, err)
 	}
 
-	hb, err := command.NewHeartbeatProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	hb, err := command.NewHeartbeatProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(310, err)
 	}
 
-	st, err := command.NewServerTimeProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	st, err := command.NewServerTimeProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(311, err)
 	}
 
 	//type0
-	bt0, err := command.NewBetType0Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	bt0, err := command.NewBetType0Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(320, err)
 	}
-	hrt0, err := command.NewHistoryResultType0Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	hrt0, err := command.NewHistoryResultType0Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(321, err)
 	}
 
 	//typ1
-	bt1, err := command.NewBetType1Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	bt1, err := command.NewBetType1Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(330, err)
 	}
-	hrt1, err := command.NewHistoryResultType1Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	hrt1, err := command.NewHistoryResultType1Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(331, err)
 	}
 	//typ1
-	bt2, err := command.NewBetType2Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	bt2, err := command.NewBetType2Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(340, err)
 	}
-	hrt2, err := command.NewHistoryResultType2Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	hrt2, err := command.NewHistoryResultType2Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(341, err)
 	}
 
 	//type6
-	bt6, err := command.NewBetType6Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	bt6, err := command.NewBetType6Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(350, err)
 	}
-	hrt6, err := command.NewHistoryResultType6Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	hrt6, err := command.NewHistoryResultType6Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(351, err)
 	}
 
 	//type˙
-	bt7, err := command.NewBetType7Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	bt7, err := command.NewBetType7Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(360, err)
 	}
-	hrt7, err := command.NewHistoryResultType7Processor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	hrt7, err := command.NewHistoryResultType7Processor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(361, err)
 	}
@@ -331,7 +342,7 @@ func main() {
 	}
 
 	//builtin event
-	ule, err := builtinevent.NewUserLostEventProcessor(command.NewBasicProcessor(nex, conf, dbCtrl,rmc))
+	ule, err := builtinevent.NewUserLostEventProcessor(command.NewBasicProcessor(nex, conf, dbCtrl, rmc))
 	if err != nil {
 		exit(422, err)
 	}
@@ -373,8 +384,8 @@ func main() {
 	//grpc server
 	//addr, port := nex.GetConfig().RPCServerAddress()
 	//err=nex.StartGRPCServer(pb.RegisterRPCServer, rpc.NewRPCServer(nex, conf, roomCtrl.NewController(conf), control.NewRateController(conf), control.NewDBController(conf.DBAPIServer())))
-	err=nex.StartGRPCServer(pb.RegisterRPCServer, rpc.NewRPCServer(nex, conf, rCtrl, control.NewRateController(conf), dbCtrl,rmc))
-	if err!=nil{
+	err = nex.StartGRPCServer(pb.RegisterRPCServer, rpc.NewRPCServer(nex, conf, rCtrl, control.NewRateController(conf), dbCtrl, rmc))
+	if err != nil {
 		exit(500, err)
 	}
 	nex.Start()
@@ -465,5 +476,3 @@ func getConfigFilePosition(fileName string) string {
 //
 //	return stop
 //}
-
-

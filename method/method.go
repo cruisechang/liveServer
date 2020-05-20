@@ -4,9 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
-	"net/http"
-
 	"github.com/cruisechang/liveServer/config"
 	"github.com/cruisechang/liveServer/config/dbConf"
 	"github.com/cruisechang/liveServer/config/roomConf"
@@ -14,6 +11,9 @@ import (
 	roomCtrl "github.com/cruisechang/liveServer/control/room"
 	nexSpace "github.com/cruisechang/nex"
 	"github.com/cruisechang/nex/entity"
+	"io/ioutil"
+	"net/http"
+	"strings"
 )
 
 func QueryHalls(bp *control.DBController, method, path string) ([]*dbConf.HallData, error) {
@@ -253,8 +253,7 @@ func GetDealer(dealerID int, dealers []*dbConf.Dealer) (roomConf.Dealer, error) 
 
 func CreateTypeData(boot int, round int64, limitation interface{}) (interface{}, error) {
 
-	d, ok := limitation.(*config.Limitation0)
-	if ok {
+	if d, ok := limitation.(*config.Limitation0); ok {
 		return &roomConf.TypeData0{
 			Boot:             boot,
 			Round:            round,
@@ -270,8 +269,8 @@ func CreateTypeData(boot int, round int64, limitation interface{}) (interface{},
 			BigSmallLimit:    d.BigSmallLimit,
 		}, nil
 	}
-	d1, ok := limitation.(*config.Limitation100)
-	if ok {
+
+	if d1, ok := limitation.(*config.Limitation100); ok {
 		return &roomConf.TypeData1{
 			Boot:          boot,
 			Round:         round,
@@ -284,9 +283,7 @@ func CreateTypeData(boot int, round int64, limitation interface{}) (interface{},
 		}, nil
 	}
 
-	d2, ok := limitation.(*config.Limitation200)
-	if ok {
-
+	if d2, ok := limitation.(*config.Limitation200); ok {
 		return &roomConf.TypeData2{
 			Boot:           boot,
 			Round:          round,
@@ -298,8 +295,7 @@ func CreateTypeData(boot int, round int64, limitation interface{}) (interface{},
 		}, nil
 	}
 
-	d6, ok := limitation.(*config.Limitation600)
-	if ok {
+	if d6, ok := limitation.(*config.Limitation600); ok {
 		return &roomConf.TypeData6{
 			Boot:     boot,
 			Round:    round,
@@ -322,8 +318,7 @@ func CreateTypeData(boot int, round int64, limitation interface{}) (interface{},
 		}, nil
 	}
 
-	d7, ok := limitation.(*config.Limitation700)
-	if ok {
+	if d7, ok := limitation.(*config.Limitation700); ok {
 		return &roomConf.TypeData7{
 			Boot:     boot,
 			Round:    round,
@@ -345,6 +340,64 @@ func CreateTypeData(boot int, round int64, limitation interface{}) (interface{},
 
 	return nil, errors.New("CreateTypeData error")
 }
+
+func CreateHistoryResult(roomType int, rd *dbConf.RoomData) (interface{}, error) {
+
+	var reErr error
+	switch roomType {
+	case 0:
+		d := roomConf.HistoryResultType0{}
+		//historyResult from db is empty default []
+		//因為historyResultType0 [][]int32 所以可以用 []當預設
+		reErr = json.Unmarshal([]byte(rd.HistoryResult), &d)
+		return d, reErr
+
+	case 1:
+		d := roomConf.HistoryResultType1{}
+		//historyResult from db is empty default []
+		//因為historyResultType1 []int32 所以可以用 []當預設
+		reErr = json.Unmarshal([]byte(rd.HistoryResult), &d)
+		return d, reErr
+	case 2:
+		d := roomConf.HistoryResultType2{}
+		//historyResult from db is empty default []
+		//因為historyResultType2 [][]int32 所以可以用 []當預設
+		reErr = json.Unmarshal([]byte(rd.HistoryResult), &d)
+		return d, reErr
+	case 6:
+
+		d := []*roomConf.HistoryResultType6{}
+
+		//historyResult from db is empty default []
+		//補預設值
+		if strings.Compare(dbConf.DefaultJSON, rd.HistoryResult) == 0 {
+			d = append(d, &roomConf.HistoryResultType6{
+				HallID:   int(rd.HallID),
+				RoomID:   int(rd.RoomID),
+				Dice:     []int{},
+				Sum:      0,
+				BigSmall: 0,
+				OddEven:  0,
+			})
+			return d, nil
+		}
+
+		reErr = json.Unmarshal([]byte(rd.HistoryResult), &d)
+
+		return d, reErr
+	case 7:
+		d := roomConf.HistoryResultType7{}
+		//historyResult from db is empty default []
+		//因為historyResultType7 []int32 所以可以用 []當預設
+		reErr = json.Unmarshal([]byte(rd.HistoryResult), &d)
+		return d, reErr
+	default:
+		return nil, fmt.Errorf("room data unmarshal history result error")
+	}
+
+}
+
+/*
 func CreateHistoryResult(roomType int) interface{} {
 	switch roomType {
 	case 0:
@@ -406,6 +459,7 @@ func CreateHistoryResult(roomType int) interface{} {
 		return nil
 	}
 }
+*/
 
 func CreateRoomParameters(data *dbConf.RoomData, typeData interface{}, dealer roomConf.Dealer, historyResult interface{}) *RoomField {
 	return &RoomField{
@@ -448,7 +502,7 @@ func CreateRooms(rm nexSpace.RoomManager, rCtrl *roomCtrl.Controller, roomData [
 
 		li := GetLimitation(int(r.LimitationID), transferredLims)
 		if li == nil {
-			return nil, errors.New(fmt.Sprintf("GetLimitation ==nil,limitationID=%d", r.LimitationID))
+			return nil, errors.New(fmt.Sprintf("CreateRooms GetLimitation ==nil,limitationID=%d", r.LimitationID))
 		}
 		de, err := GetDealer(int(r.DealerID), dealers)
 
@@ -459,17 +513,21 @@ func CreateRooms(rm nexSpace.RoomManager, rCtrl *roomCtrl.Controller, roomData [
 
 		typeData, err := CreateTypeData(int(r.Boot), int64(r.RoundID), li)
 		if err != nil {
-			return nil, fmt.Errorf(fmt.Sprintf("CreateTypeData error, roundID=%d", r.RoomID))
+			return nil, fmt.Errorf(fmt.Sprintf("CreateRooms CreateRooms CreateTypeData error=%s, roundID=%d", err.Error(), r.RoomID))
 
 		}
 
-		historyResult := CreateHistoryResult(int(r.RoomType))
+		//historyResult:=CreateHistoryResult(int(r.RoomType))
+		historyResult, err := CreateHistoryResult(int(r.RoomType), r)
+		if err != nil {
+			return nil, fmt.Errorf(fmt.Sprintf("CreateRooms CreateHistoryResult error=%s, roundID=%d", err.Error(), r.RoomID))
+		}
 
 		param := CreateRoomParameters(r, typeData, de, historyResult)
 
 		rr, err := CreateRoom(rm, rCtrl, param)
 		if err != nil {
-			return nil, fmt.Errorf("CreateRoom error %s, roomID=%d", err.Error(), r.RoomID)
+			return nil, fmt.Errorf("CreateRooms CreateRoomParameters error=%s, roomID=%d", err.Error(), r.RoomID)
 		}
 
 		//innit boot round
@@ -492,12 +550,12 @@ func CreateHalls(hm nexSpace.HallManager, hallData []*dbConf.HallData) {
 func SetHallRoom(halls []entity.Hall, rooms []entity.Room) {
 	for _, h := range halls {
 		for _, r := range rooms {
+
+			fmt.Printf("hall id=%d,room id=%d, room hallID=%d", h.ID(), r.ID(), r.HallID())
+
 			if r.HallID() == h.ID() {
 				h.AddRoom(r)
 			}
 		}
 	}
 }
-
-
-

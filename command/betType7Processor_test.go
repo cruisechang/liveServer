@@ -1,11 +1,14 @@
 package command
 
 import (
-	"github.com/cruisechang/liveServer/config"
 	"testing"
+
+	"github.com/cruisechang/liveServer/config"
 
 	"encoding/base64"
 	"encoding/json"
+
+	"github.com/cruisechang/liveServer/control"
 	roomCtrl "github.com/cruisechang/liveServer/control/room"
 	"github.com/cruisechang/nex"
 	"github.com/cruisechang/nex/entity"
@@ -16,13 +19,14 @@ func Test_betType7Processor_Run(t *testing.T) {
 	nx, _ := nex.NewNex(getConfigFilePosition("nexConfig.json"))
 	conf, _ := config.NewConfigurer("config.json")
 
-	//create room
-	room,_:=nx.GetRoomManager().CreateRoom(0,conf.RoomType7(),"room")
+	dbCtrl := control.NewDBController(conf.DBAPIServer())
 	rCtrl := roomCtrl.NewController(conf)
-	rCtrl.InitRoomBet(room )
-	//dbCtrl := control.NewDBController(conf.DBAPIServer())
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
 
-	p, _ := NewBetType7Processor(getBasicProcessor())
+	//create room
+	nx.GetRoomManager().CreateRoom(0, conf.RoomType7(), "name")
+
+	p, _ := NewBetType0Processor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	user := entity.NewUser(0, "conn")
 	user.SetCredit(100000)
@@ -30,8 +34,8 @@ func Test_betType7Processor_Run(t *testing.T) {
 	obj := &[]config.BetType7CmdData{
 		{
 			RoomID: 0,
-			One:    []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
-			Two:    []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
+			One:    []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+			Two:    []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 			Three:  []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 			Four:   []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 			Six:    []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},

@@ -6,23 +6,44 @@ import (
 	"testing"
 
 	"github.com/cruisechang/liveServer/config"
+	"github.com/cruisechang/liveServer/config/roomConf"
+	"github.com/cruisechang/liveServer/control"
+	roomCtrl "github.com/cruisechang/liveServer/control/room"
 	"github.com/cruisechang/nex"
 	"github.com/cruisechang/nex/entity"
 )
 
 func Test_roomInfoProcessor_Run(t *testing.T) {
 
-	//nx, _ := nex.NewNex(getConfigFilePosition("nexConfig.json"))
+	nx, _ := nex.NewNex(getConfigFilePosition("nexConfig.json"))
 	conf, _ := config.NewConfigurer("config.json")
-	//dbCtrl := control.NewDBController(conf.DBAPIServer())
-	p, _ := NewRoomInfoProcessor(getBasicProcessor())
+
+	dbCtrl := control.NewDBController(conf.DBAPIServer())
+	rCtrl := roomCtrl.NewController(conf)
+	rmc := control.NewRoadMapController(conf.RoadMapAPIHost(), rCtrl, nx.GetLogger())
+
+	hallID := 0
+	roomID := 1
+
+	hm := nx.GetHallManager()
+	hall, _ := hm.CreateHall(hallID, "hallName")
+	rm := nx.GetRoomManager()
+	room, _ := rm.CreateRoom(roomID, 0, "roomName")
+
+	//create type data
+	td := createTypeData()
+	rCtrl.SetTypeData(room, td)
+
+	hall.AddRoom(room)
+
+	p, _ := NewRoomInfoProcessor(NewBasicProcessor(nx, conf, dbCtrl, rmc))
 
 	user := entity.NewUser(0, "conn")
 
 	obj := &[]config.RoomInfoCmdData{
 		{
-			HallID: 0,
-			RoomID: 1,
+			HallID: hallID,
+			RoomID: roomID,
 		},
 	}
 	c, err := json.Marshal(obj)
@@ -91,5 +112,22 @@ func Test_roomInfoProcessor_Run(t *testing.T) {
 				t.Errorf("roomInfoProcessor.Run() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
+	}
+}
+
+func createTypeData() *roomConf.TypeData0 {
+	return &roomConf.TypeData0{
+		Boot:             1,
+		Round:            1,
+		BetLimit:         []int{10, 100},
+		BankerLimit:      []int{10, 100},
+		PlayerLimit:      []int{10, 100},
+		TieLimit:         []int{10, 100},
+		BankerPairLimit:  []int{10, 100},
+		PlayerPairLimit:  []int{10, 100},
+		AnyPairLimit:     []int{10, 100},
+		PerfectPairLimit: []int{10, 100},
+		SuperSixLimit:    []int{10, 100},
+		BigSmallLimit:    []int{10, 100},
 	}
 }

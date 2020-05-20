@@ -3,7 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="97e80478-9316-4fc5-8712-cee9f55f7f98" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/command/betType0Processor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType0Processor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType0Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType0Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType1Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType1Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType2Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType2Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType6Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType6Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/betType7Processor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/betType7Processor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/roomInfoProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/roomInfoProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/roomInfoProcessor_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/roomInfoProcessor_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/command/userInfoProcessor.go" beforeDir="false" afterPath="$PROJECT_DIR$/command/userInfoProcessor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dbConf/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/dbConf/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/roadMapController.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/roadMapController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/control/roadMapController_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/control/roadMapController_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/method/method.go" beforeDir="false" afterPath="$PROJECT_DIR$/method/method.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpc/roundResultHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/rpc/roundResultHandler.go" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -33,63 +46,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rpc/roundResultHandler.go">
+        <entry file="file://$PROJECT_DIR$/control/roadMapController.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="276" column="91" selection-start-line="276" selection-start-column="91" selection-end-line="276" selection-end-column="91" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/command/betType0Processor.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-756">
-              <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/command/leaveHallProcessor.go">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/command/betType1Processor.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rpc/type0.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="416">
+              <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
               <folding>
-                <element signature="e#13#291#0" expanded="true" />
+                <element signature="e#17#334#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rpc/server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -97,29 +60,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2910">
-              <caret line="194" column="8" selection-start-line="194" selection-start-column="8" selection-end-line="194" selection-end-column="8" />
+            <state relative-caret-position="598">
+              <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/command.go">
+        <entry file="file://$PROJECT_DIR$/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-              <folding>
-                <element signature="e#16#79#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/command/historyResultType0Processor.go">
+        <entry file="file://$PROJECT_DIR$/method/method.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2070">
-              <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
+            <state relative-caret-position="7320">
+              <caret line="502" selection-start-line="502" selection-end-line="502" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/control/roadMapController_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../nex/entity/room.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2205">
+              <caret line="150" selection-start-line="150" selection-end-line="150" />
             </state>
           </provider>
         </entry>
@@ -135,36 +113,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resp</find>
-      <find>DBController</find>
-      <find>db</find>
-      <find>BooRoundData</find>
-      <find>RoadMapAPIHost</find>
-      <find>brData</find>
-      <find>roadM</find>
-      <find>code</find>
-      <find>command</find>
-      <find>Request</find>
-      <find>dbCtrl</find>
-      <find>result2Data</find>
-      <find>RoadMapData</find>
-      <find>NewRateController</find>
-      <find>RequestRoadMap</find>
-      <find>SetRoadMapDataFromResult</find>
-      <find>getRoundRecordData</find>
+      <find>UnAssigned</find>
+      <find>unAssigned</find>
+      <find>resData.Code != config.CodeSuccess</find>
+      <find>assert</find>
+      <find>getPostHistoryResultData</find>
+      <find>default</find>
+      <find>LimitationID0</find>
+      <find>LimitationID200</find>
+      <find>CodeSuccess</find>
+      <find>[]</find>
+      <find>&quot;[]&quot;</find>
       <find>postRoundResultToDBAPI</find>
-      <find>RoadMapDataType0</find>
-      <find>CmdRoadMapType0</find>
-      <find>postRoadMap</find>
+      <find>GotData</find>
+      <find>postHistoryResultToDBAPI</find>
       <find>handleHistoryResult</find>
-      <find>db got count</find>
-      <find>HistoryResultType0</find>
-      <find>return</find>
-      <find>complete</find>
-      <find>betType0Processor</find>
-      <find>has bet</find>
-      <find>handleBet</find>
-      <find>handlebet</find>
+      <find>dbCtrl.Do</find>
+      <find>xxx</find>
+      <find>queryBanners</find>
+      <find>getlimi</find>
+      <find>GetLimitation</find>
+      <find>transferredLimit</find>
+      <find>CreateRooms</find>
+      <find>RegisterCommandProcessor</find>
+      <find>run</find>
+      <find>Start</find>
+      <find>shutdown</find>
+      <find>date</find>
+      <find>GetRoadMapRequestData</find>
+      <find>139</find>
+      <find>RoadMapController Init</find>
     </findStrings>
     <replaceStrings>
       <replace>roomInfoProcessor</replace>
@@ -203,37 +181,26 @@
       <dir>$PROJECT_DIR$/config</dir>
     </dirStrings>
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go/1.10.3/libexec" />
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.14/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/backstage.go" />
         <option value="$PROJECT_DIR$/test/client.go" />
-        <option value="$PROJECT_DIR$/config/dbConf/config.go" />
-        <option value="$PROJECT_DIR$/config/config.go" />
-        <option value="$PROJECT_DIR$/control/roadMapController_test.go" />
         <option value="$PROJECT_DIR$/http/client.go" />
         <option value="$PROJECT_DIR$/control/dbController.go" />
         <option value="$PROJECT_DIR$/control/room/typeData.go" />
         <option value="$PROJECT_DIR$/rpc/util.go" />
-        <option value="$PROJECT_DIR$/config/configurer.go" />
         <option value="$PROJECT_DIR$/command/basicProcessor.go" />
         <option value="$PROJECT_DIR$/command/basicProcessor_test.go" />
-        <option value="$PROJECT_DIR$/command/betType0Processor_test.go" />
-        <option value="$PROJECT_DIR$/command/betType1Processor_test.go" />
-        <option value="$PROJECT_DIR$/command/betType2Processor_test.go" />
-        <option value="$PROJECT_DIR$/command/betType6Processor_test.go" />
-        <option value="$PROJECT_DIR$/command/betType7Processor_test.go" />
         <option value="$PROJECT_DIR$/command/enterHallProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/enterRoomProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/hallInfoProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/heartbeatProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/leaveRoomProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/logoutProcessor_test.go" />
-        <option value="$PROJECT_DIR$/command/roomInfoProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/userInfoProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/testUtil.go" />
         <option value="$PROJECT_DIR$/command/historyResultType0Processor_test.go" />
@@ -247,20 +214,31 @@
         <option value="$PROJECT_DIR$/command/historyResultType1Processor.go" />
         <option value="$PROJECT_DIR$/command/historyResultType0Processor.go" />
         <option value="$PROJECT_DIR$/rpc/server.go" />
-        <option value="$PROJECT_DIR$/main.go" />
-        <option value="$PROJECT_DIR$/control/roadMapController.go" />
         <option value="$PROJECT_DIR$/rpc/type0.go" />
         <option value="$PROJECT_DIR$/rpc/type1.go" />
         <option value="$PROJECT_DIR$/rpc/type2.go" />
         <option value="$PROJECT_DIR$/rpc/type6.go" />
         <option value="$PROJECT_DIR$/rpc/type7.go" />
         <option value="$PROJECT_DIR$/config/command.go" />
-        <option value="$PROJECT_DIR$/method/method.go" />
         <option value="$PROJECT_DIR$/command/loginProcessor_test.go" />
         <option value="$PROJECT_DIR$/command/loginProcessor.go" />
-        <option value="$PROJECT_DIR$/command/roomInfoProcessor.go" />
         <option value="$PROJECT_DIR$/command/betType0Processor.go" />
+        <option value="$PROJECT_DIR$/config/config.go" />
+        <option value="$PROJECT_DIR$/control/roadMapController_test.go" />
+        <option value="$PROJECT_DIR$/command/betType1Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType0Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType2Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType7Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/betType6Processor_test.go" />
+        <option value="$PROJECT_DIR$/command/roomInfoProcessor_test.go" />
+        <option value="$PROJECT_DIR$/command/roomInfoProcessor.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/config/configurer.go" />
+        <option value="$PROJECT_DIR$/config/dbConf/config.go" />
+        <option value="$PROJECT_DIR$/method/method.go" />
         <option value="$PROJECT_DIR$/rpc/roundResultHandler.go" />
+        <option value="$PROJECT_DIR$/command/userInfoProcessor.go" />
+        <option value="$PROJECT_DIR$/control/roadMapController.go" />
       </list>
     </option>
   </component>
@@ -274,10 +252,10 @@
     <scope name="local" pattern="" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="25" />
-    <option name="y" value="23" />
-    <option name="width" value="1255" />
-    <option name="height" value="777" />
+    <option name="x" value="-2019" />
+    <option name="y" value="-131" />
+    <option name="width" value="1868" />
+    <option name="height" value="1029" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -285,6 +263,37 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="method" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -305,41 +314,23 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
-              <item name="rpc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liveServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liveServer" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/cruise/go/src/oa/liveServer/fake/creator.go" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -362,7 +353,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.login">
+  <component name="RunManager" selected="Go Build.liveServer">
     <configuration name="client" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="liveServer" />
       <working_directory value="$PROJECT_DIR$/../../../../output/liveServer" />
@@ -667,10 +658,10 @@
       <item itemvalue="Go Build.liveServer" />
       <item itemvalue="Go Test.betType0" />
       <item itemvalue="Go Test.betType1" />
-      <item itemvalue="Go Test.betCtontroller" />
       <item itemvalue="Go Test.betType2" />
       <item itemvalue="Go Test.betType6" />
       <item itemvalue="Go Test.betType7" />
+      <item itemvalue="Go Test.betCtontroller" />
       <item itemvalue="Go Test.historyResultType0" />
       <item itemvalue="Go Test.historyResultType1" />
       <item itemvalue="Go Test.historyResultType2" />
@@ -697,35 +688,35 @@
     <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="TestHistory">
-    <history-entry file="roadMapController - 2019.01.25 at 12h 32m 20s.xml">
-      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.19 at 11h 44m 39s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="roadMapController - 2019.01.25 at 12h 33m 18s.xml">
-      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.19 at 12h 44m 37s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="roadMapController - 2019.01.25 at 12h 35m 27s.xml">
-      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.19 at 12h 52m 17s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="roadMapController - 2019.01.25 at 14h 37m 15s.xml">
-      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.19 at 12h 55m 19s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="roadMapController - 2019.01.25 at 17h 15m 32s.xml">
-      <configuration name="roadMapController" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.19 at 13h 03m 27s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="historyResultType0 - 2019.01.28 at 22h 40m 33s.xml">
-      <configuration name="historyResultType0" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.20 at 12h 40m 32s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="historyResultType0 - 2019.01.28 at 22h 42m 44s.xml">
-      <configuration name="historyResultType0" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.20 at 12h 41m 17s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="historyResultType0 - 2019.01.28 at 22h 44m 53s.xml">
-      <configuration name="historyResultType0" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.20 at 12h 41m 55s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="historyResultType1 - 2019.01.28 at 22h 46m 33s.xml">
-      <configuration name="historyResultType1" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.20 at 12h 42m 00s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="login - 2019.01.30 at 09h 49m 33s.xml">
-      <configuration name="login" configurationId="GoTestRunConfiguration" />
+    <history-entry file="roomInfo - 2019.02.20 at 12h 58m 36s.xml">
+      <configuration name="roomInfo" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -738,20 +729,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="25" y="23" width="1255" height="777" extended-state="0" />
+    <frame x="-2019" y="-131" width="1868" height="1029" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.50128204" visible="true" weight="0.22918384" />
-      <window_info x="1546" y="-754" width="232" height="754" id="Structure" internal_type="SLIDING" order="1" sideWeight="0.49871793" side_tool="true" weight="0.27372262" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49927008" visible="true" weight="0.18291347" />
+      <window_info x="1546" y="-754" width="232" height="754" id="Structure" internal_type="SLIDING" order="1" sideWeight="0.5007299" weight="0.22918384" />
       <window_info auto_hide="true" id="Favorites" internal_type="SLIDING" order="2" sideWeight="0.5555556" side_tool="true" weight="0.23391813" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900944" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35182482" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4826969" weight="0.37961784" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4995878" weight="0.35031846" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48227534" weight="0.37834394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32554746" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5173031" side_tool="true" weight="0.32972324" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5004122" side_tool="true" weight="0.35036495" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32692307" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32564104" />
@@ -837,247 +828,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/command/betType2Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-757">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding>
-            <element signature="e#17#233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/betType6Processor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/userInfoProcessor.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/enterRoomProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="e#17#232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/enterHallProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#17#231#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/betType7Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding>
-            <element signature="e#17#290#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/betType6Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#17#230#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/basicProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#17#262#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/heartbeatProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/leaveRoomProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/logoutProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="e#17#231#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/userInfoProcessor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="46" lean-forward="true" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType0Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#17#344#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType1Processor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2205">
-          <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType1Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType2Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="38" column="76" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
-          <folding>
-            <element signature="e#17#299#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/testUtil.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="e#17#238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType2Processor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2175">
-          <caret line="157" column="23" selection-start-line="157" selection-start-column="23" selection-end-line="157" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType6Processor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="162" column="48" selection-start-line="162" selection-start-column="48" selection-end-line="162" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType7Processor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType7Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType6Processor_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="61" column="76" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
-          <folding>
-            <element signature="e#17#343#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/util.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/configurer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6315">
-          <caret line="428" column="64" selection-start-line="428" selection-start-column="64" selection-end-line="428" selection-end-column="64" />
-          <folding>
-            <element signature="e#16#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/control/roadMapController.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="68" column="23" lean-forward="true" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#334#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/basicProcessor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2505">
-          <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
-          <folding>
-            <element signature="e#17#285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rpc/type2.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/method/method.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6255">
-          <caret line="431" column="33" selection-start-line="431" selection-start-column="33" selection-end-line="431" selection-end-column="33" />
-          <folding>
-            <element signature="e#16#414#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1129,89 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/control/roadMapController_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/loginProcessor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1226">
-          <caret line="185" selection-start-line="185" selection-end-line="185" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/dbConf/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="110" column="16" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
-          <folding>
-            <element signature="e#14#631#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/control/room/historyResult.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/roomConf/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="130" column="8" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2910">
-          <caret line="194" column="8" selection-start-line="194" selection-start-column="8" selection-end-line="194" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/command.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="e#16#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/command/historyResultType0Processor.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/command/betType1Processor.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1222,27 +893,309 @@
     <entry file="file://$PROJECT_DIR$/command/leaveHallProcessor.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/control/room/bet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="282" column="26" selection-start-line="282" selection-start-column="26" selection-end-line="282" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType6Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/room/historyResult.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="196" column="12" lean-forward="true" selection-start-line="196" selection-start-column="12" selection-end-line="196" selection-end-column="12" />
+          <folding>
+            <element signature="e#13#513#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType1Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/userInfoProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-547">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#17#186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/testUtil.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType1Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType7Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#17#292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType6Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+          <folding>
+            <element signature="e#17#289#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/betType2Processor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nex/entity/hall.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="115" column="33" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/client.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nex/roomManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/historyResultType6Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-181">
+          <caret line="110" column="50" lean-forward="true" selection-start-line="110" selection-start-column="50" selection-end-line="110" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.10.3/libexec/src/strings/compare.go" />
+    <entry file="file://$PROJECT_DIR$/command/historyResultType0Processor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="120" column="16" lean-forward="true" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/roomConf/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="172" column="5" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/configurer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1317">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#16#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/go/1.10.3/libexec/src/net/http/client.go" />
+    <entry file="file://$PROJECT_DIR$/command/loginProcessor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="126" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/dbConf/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/command.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#16#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/builtinevent/userLostEventProcessor.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc/roundResultHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7005">
+          <caret line="487" column="19" selection-start-line="487" selection-start-column="19" selection-end-line="487" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5550">
+          <caret line="390" column="10" selection-start-line="390" selection-start-column="10" selection-end-line="390" selection-end-column="10" />
+          <folding>
+            <element signature="e#14#631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/command/betType0Processor.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
-          <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+        <state relative-caret-position="315">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding>
+            <element signature="e#17#289#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/basicProcessor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/roomInfoProcessor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#17#344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nex/nex.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="131" column="1" selection-start-line="131" selection-start-column="1" selection-end-line="131" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rpc/type0.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="708">
+          <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
           <folding>
             <element signature="e#13#291#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc/roundResultHandler.go">
+    <entry file="file://$PROJECT_DIR$/command/betType0Processor_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="276" column="91" selection-start-line="276" selection-start-column="91" selection-end-line="276" selection-end-column="91" />
+        <state relative-caret-position="708">
+          <caret line="89" column="6" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="6" />
+          <folding>
+            <element signature="e#17#290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../util/security/des.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command/userInfoProcessor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/dbController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/method/method.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7320">
+          <caret line="502" selection-start-line="502" selection-end-line="502" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/roadMapController_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nex/entity/room.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2205">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/roadMapController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+          <folding>
+            <element signature="e#17#334#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -115,7 +115,6 @@ func (p *UserInfoProcessor) Run(obj *nex.CommandObject) error {
 	} else {
 		bannerData := p.createBanners(conf, bannerDB)
 		if len(bannerData) > 1 {
-
 			resBD, _ := json.Marshal(bannerData)
 			sendDataStr := base64.StdEncoding.EncodeToString(resBD)
 			p.SendCommand(config.CodeSuccess, 0, conf.CmdBanner(), sendDataStr, user, []string{user.ConnID()})
@@ -180,7 +179,6 @@ func (p *UserInfoProcessor) queryBanners(method, path string) ([]*dbConf.Banner,
 		return nil, err
 	}
 	if resp.StatusCode != http.StatusOK {
-
 		return nil, fmt.Errorf("http status code wrong %d", resp.StatusCode)
 	}
 	if resp.Body == nil {
